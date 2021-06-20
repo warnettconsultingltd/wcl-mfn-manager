@@ -18,3 +18,7 @@ hs_err_pid*
 
 # Intellij IDE files
 .idea/
+*/*.iml
+
+# Target classes
+contract/target/
