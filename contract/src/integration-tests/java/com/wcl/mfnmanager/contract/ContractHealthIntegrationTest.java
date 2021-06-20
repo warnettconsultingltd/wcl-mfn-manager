@@ -1,4 +1,4 @@
-package com.wcl.contract;
+package com.wcl.mfnmanager.contract;
 
 import com.wcl.mfnmanager.contract.ContractApplication;
 import io.restassured.http.ContentType;
