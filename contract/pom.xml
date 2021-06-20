@@ -7,9 +7,9 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent><name>contract</name>
 
+  <artifactId>contract</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
 </project>
 
-
-<artifactId>contract</artifactId>
-<version>0.0.1-SNAPSHOT</version>
 
