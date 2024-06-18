@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org" >
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${page_title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/mfn-navbar.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/dropdown-menu.css}">
 <body>
-    <h1>Hello World!</h1>
+    <div th:insert="~{fragments/navigation-bar/mfn-navbar :: mfn-navbar}">  </div>
 </body>
 </html>
-
