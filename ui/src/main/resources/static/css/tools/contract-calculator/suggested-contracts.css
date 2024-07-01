@@ -1,0 +1,40 @@
+.suggested-contracts-table {
+    border-collapse: collapse;
+    padding: 0px;
+    gap: 0px;
+}
+
+.suggested-contracts-table thead td {
+  border: 1px black solid;
+  padding: 0px;
+  gap: 0px;
+}
+
+.suggested-contracts-table td {
+    border: 1px black solid;
+    padding: 0px;
+    gap: 0px;
+}
+
+.contract-details-header {
+    border: 1px black solid;
+    width: 100%;
+    text-align: center;
+    background-color: #FC4C02;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nested-table {
+  height: calc(100% + 2px);
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-collapse: collapse;
+border-style: hidden;
+}
+
+td {
+  text-align: center;
+  font-size: 18px;
+}
