@@ -1,0 +1,39 @@
+
+# in progress
+
+
+# Delete below
+
+.contract-years-column {
+    grid-column: 1;
+}
+
+.total-salary-column {
+    grid-column: 2;
+}
+
+.total-remuneration-column {
+    grid-column: 3;
+}
+
+.contract-year-column {
+    grid-column: 4;
+}
+
+.salary-column {
+    grid-column: 5;
+}
+
+.bonus-per-year-column {
+    grid-column: 6;
+}
+
+.total-per-year-column {
+    grid-column: 7;
+}
+
+.bordered-grid-item {
+  border: 1px black solid;
+  width: 100%;
+  text-align: center;
+}

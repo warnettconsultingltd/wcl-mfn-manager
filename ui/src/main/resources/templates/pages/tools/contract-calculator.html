@@ -5,10 +5,17 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${page_title}"></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" th:href="@{../css/navigation.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/common/navigation.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/common/text.css}">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{../css/common/tags.css}">-->
+    <link rel="stylesheet" type="text/css" th:href="@{../css/tools/contract-calculator/contract-parameters-form.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/tools/contract-calculator/suggested-contracts.css}">
 <body>
-    <div th:insert="~{fragments/navigation-bar/mfn-navigation-bar :: mfn-navbar}">  </div>
+
+<div th:insert="~{fragments/common/mfn-navigation-bar :: mfn-navbar}"></div>
+<div th:insert="~{fragments/contract-calculator/contract-parameters :: contract-parameters-form}"></div>
+<div th:insert="~{fragments/contract-calculator/suggested-contracts :: suggested-contracts-table}"></div>
 </body>
 </html>
