@@ -1,0 +1,41 @@
+.contract-parameters-grid {
+  display: inline-grid;
+  grid-template-columns: auto auto 50px 150px;
+  gap: 2px;
+  padding: 2px;
+}
+
+.contract-parameters-grid div {
+  overflow: hidden;
+}
+
+#minSalaryLabel, #bonusRequiredLabel, #escalatorLabel {
+  grid-column-start: 1;
+  text-align: right;
+}
+
+#reset {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+#submit {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+input {
+  color: white;
+}
+
+input[type="reset"] {
+  background-color: #FC4C02;
+}
+
+input[type="submit"] {
+  background-color: #005778;
+}
