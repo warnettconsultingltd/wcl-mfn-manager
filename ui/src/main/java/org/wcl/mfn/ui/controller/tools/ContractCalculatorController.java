@@ -18,7 +18,8 @@ public class ContractCalculatorController {
     @GetMapping("/contract-calculator")
     public String contractCalculatorPage(Model model) {
         model.addAttribute("page_title", title);
-        model.addAttribute("suggestedContracts",generateBlankContracts());
+        model.addAttribute("contract_parameters", generateBlankContractParameters());
+        model.addAttribute("suggested_contracts",generateBlankContracts());
 
         return CONTRACT_CALCULATOR_PAGE;
     }
@@ -34,6 +35,18 @@ public class ContractCalculatorController {
                             List.of(0,0, 0, 0, 0),0,0),
                       new SuggestedYearContract(6,0,0,
                             List.of(0,0, 0, 0, 0, 0),0,0));
+    }
+
+    private ContractParameters generateBlankContractParameters() {
+        return new ContractParameters(0,0);
+    }
+
+    record ContractParameters(int salary, int bonus, int escalator) {
+        private static final int DEFAULT_ESCALATOR = 5;
+
+        public ContractParameters(int salary, int bonus) {
+            this(salary, bonus, DEFAULT_ESCALATOR);
+        }
     }
 }
 
