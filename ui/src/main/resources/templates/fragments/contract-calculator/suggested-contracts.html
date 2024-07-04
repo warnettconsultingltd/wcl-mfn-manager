@@ -42,7 +42,13 @@
                 </table>
             </td>
             <td th:text="${contract.bonusPerYear}"></td>
-            <td th:text="${contract.totalPerYear}"></td>
+            <td>
+                <table class="nested-table">
+                    <tr th:each="totalPerYear : ${contract.totalsPerYear}">
+                        <td th:text="${totalPerYear}"></td>
+                    </tr>
+                </table>
+            </td>
         </tr>
         </tbody>
     </table>
