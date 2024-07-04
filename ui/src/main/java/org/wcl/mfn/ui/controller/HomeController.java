@@ -12,6 +12,7 @@ public class HomeController {
     private String title;
 
     private static final String HOME_PAGE = "pages/home/home";
+
     @GetMapping("/")
     public String homePage(Model model) {
         model.addAttribute("page_title", title);
