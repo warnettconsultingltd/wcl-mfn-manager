@@ -14,8 +14,8 @@ public class HomeController {
     private String viewName;
 
     @GetMapping("#{'${url.home}'}")
-    public String homePage(Model model) {
-        model.addAttribute("page_title", title);
+    public String homePage(Model model, @Value("common.view.attribute.page-title") String pageTitle) {
+        model.addAttribute(pageTitle, title);
         return viewName;
     }
 

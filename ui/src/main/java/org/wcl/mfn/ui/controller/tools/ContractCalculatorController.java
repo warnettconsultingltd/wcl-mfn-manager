@@ -17,10 +17,13 @@ public class ContractCalculatorController {
     private String viewName;
 
     @GetMapping("#{'${url.tools.contract-calculator}'}")
-    public String contractCalculatorPage(Model model) {
-        model.addAttribute("page_title", title);
-        model.addAttribute("contract_parameters", generateBlankContractParameters());
-        model.addAttribute("suggested_contracts",generateBlankContracts());
+    public String contractCalculatorPage(Model model,
+                                         @Value("${common.view.attribute.page-title}") String pageTitle,
+                                         @Value("${contract-calculator.view.attribute.contract-parameters}") String contractParameters,
+                                         @Value("${contract-calculator.view.attribute.suggested-contracts}") String suggestedContracts) {
+        model.addAttribute(pageTitle, title);
+        model.addAttribute(contractParameters, generateBlankContractParameters());
+        model.addAttribute(suggestedContracts,generateBlankContracts());
 
         return viewName;
     }
