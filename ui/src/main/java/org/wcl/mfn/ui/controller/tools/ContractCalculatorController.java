@@ -26,15 +26,20 @@ public class ContractCalculatorController {
 
     private List<SuggestedYearContract> generateBlankContracts() {
        return List.of(new SuggestedYearContract(2,0,0,
-                            List.of(0,0),0,0),
+                            List.of(0,0),0,
+                            List.of(0,0)),
                       new SuggestedYearContract(3,0,0,
-                            List.of(0,0, 0),0,0),
+                            List.of(0,0, 0),0,
+                              List.of(0,0,0)),
                       new SuggestedYearContract(4,0,0,
-                            List.of(0,0, 0, 0),0,0),
+                            List.of(0,0, 0, 0),0,
+                              List.of(0,0,0,0)),
                       new SuggestedYearContract(5,0,0,
-                            List.of(0,0, 0, 0, 0),0,0),
+                            List.of(0,0, 0, 0, 0),0,
+                              List.of(0,0,0,0,0)),
                       new SuggestedYearContract(6,0,0,
-                            List.of(0,0, 0, 0, 0, 0),0,0));
+                            List.of(0,0, 0, 0, 0, 0),0,
+                              List.of(0,0,0,0,0,0)));
     }
 
     private ContractParameters generateBlankContractParameters() {
