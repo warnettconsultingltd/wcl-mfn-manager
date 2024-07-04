@@ -13,7 +13,7 @@ public class HomeController {
     @Value("${view.home}")
     private String viewName;
 
-    @GetMapping("/")
+    @GetMapping("#{'${url.home}'}")
     public String homePage(Model model) {
         model.addAttribute("page_title", title);
         return viewName;

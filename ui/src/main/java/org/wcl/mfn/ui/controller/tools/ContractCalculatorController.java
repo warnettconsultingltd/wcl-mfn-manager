@@ -16,7 +16,7 @@ public class ContractCalculatorController {
     @Value("${view.tools.contract-calculator}")
     private String viewName;
 
-    @GetMapping("/contract-calculator")
+    @GetMapping("#{'${url.tools.contract-calculator}'}")
     public String contractCalculatorPage(Model model) {
         model.addAttribute("page_title", title);
         model.addAttribute("contract_parameters", generateBlankContractParameters());
