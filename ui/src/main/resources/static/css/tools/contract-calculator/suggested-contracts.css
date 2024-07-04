@@ -38,3 +38,15 @@ td {
   text-align: center;
   font-size: 18px;
 }
+
+.suggested-contracts-table tr:nth-child(even) {
+  background-color: #008E97;
+}
+
+.nested-table tr:nth-child(even) {
+  background-color: #008E97;
+}
+
+.nested-table tr:nth-child(odd) {
+  background-color: white;
+}
