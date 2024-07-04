@@ -6,22 +6,22 @@
     <title>Title</title>
 </head>
 <body>
-<div th:fragment="contract-parameters-form">
-    <form>
+<div th:fragment="contract-parameters-form(contract_parameters)">
+    <form th:object="${contract_parameters}">
         <div class="contract-parameters-grid mfn-text">
             <label id="minSalaryLabel" for="minSalaryAndBonus">First Year min salary and bonus</label>
-            <input id="minSalaryAndBonus" type="number"/>
+            <input id="minSalaryAndBonus" type="number" th:field="${contract_parameters.salary}"/>
 
             <label id="bonusRequiredLabel" for="bonusRequired">Bonus Required</label>
-            <input id="bonusRequired" type="number"/>
+            <input id="bonusRequired" type="number" th:field="${contract_parameters.bonus}"/>
 
             <label id="escalatorLabel" for="escalator">Escalator %</label>
             <input type="range" name="escalator" id="escalator" value="5" min="5" max="100" step="5"
-                   oninput="escalator_disp.value = escalator.value">
-            <output id="escalator_disp">5</output>
+                   oninput="escalator_display.value = escalator.value" th:field="${contract_parameters.escalator}">
+            <output id="escalator_display">5</output>
 
-            <input id="reset" type="reset" value="Reset"/>
-            <input id="submit" type="submit" value="Submit"/>
+            <input class="contract-parameters-button" id="reset" type="reset" value="Reset"/>
+            <input class="contract-parameters-button" id="submit" type="submit" value="Submit"/>
         </div>
     </form>
 </div>

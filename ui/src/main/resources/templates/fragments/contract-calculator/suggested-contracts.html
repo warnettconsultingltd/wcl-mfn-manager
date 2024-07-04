@@ -22,8 +22,8 @@
             <td>Total per Year</td>
         </tr>
         </thead>
-        <tbody th:if="${ not#lists.isEmpty(suggestedContracts)}">
-        <tr th:each="contract : ${suggestedContracts}">
+        <tbody th:if="${ not#lists.isEmpty(suggested_contracts)}">
+        <tr th:each="contract : ${suggested_contracts}">
             <td th:text="${contract.years}"></td>
             <td th:text="${contract.totalSalary}"></td>
             <td th:text="${contract.totalRemuneration}"></td>
