@@ -13,7 +13,8 @@ public class ContractCalculatorController {
     @Value("${page.contract-calculator.title}")
     private String title;
 
-    private static final String CONTRACT_CALCULATOR_PAGE = "pages/tools/contract-calculator";
+    @Value("${view.tools.contract-calculator}")
+    private String viewName;
 
     @GetMapping("/contract-calculator")
     public String contractCalculatorPage(Model model) {
@@ -21,7 +22,7 @@ public class ContractCalculatorController {
         model.addAttribute("contract_parameters", generateBlankContractParameters());
         model.addAttribute("suggested_contracts",generateBlankContracts());
 
-        return CONTRACT_CALCULATOR_PAGE;
+        return viewName;
     }
 
     private List<SuggestedYearContract> generateBlankContracts() {
