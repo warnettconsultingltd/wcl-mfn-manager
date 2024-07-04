@@ -28,14 +28,27 @@
   grid-column-end: 5;
 }
 
-input {
+.contract-parameters-button {
   color: white;
 }
 
-input[type="reset"] {
+.contract-parameters-button[type="reset"] {
   background-color: #FC4C02;
 }
 
-input[type="submit"] {
+.contract-parameters-button[type="submit"] {
   background-color: #005778;
+}
+
+/* The below stylings are required to remove spinners from input elements; sadly, browser dependent! */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
