@@ -15,8 +15,7 @@
 	<name>MFN Manager</name>
 	<description>Helper application for the MFN Manager online game.</description>
     <modules>
-        <module>app</module>
-		<module>ui</module>
+ 		<module>ui</module>
 	</modules>
     <properties>
 		<java.version>22</java.version>
