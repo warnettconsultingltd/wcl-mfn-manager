@@ -1,4 +1,4 @@
-package org.wcl.mfn.ui.integration;
+package org.wcl.mfn.integration;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
