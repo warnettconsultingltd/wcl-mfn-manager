@@ -8,16 +8,16 @@
 </head>
 <body>
 
-<div th:fragment="mfn-navbar">
+<div id="mfn-navbar" th:fragment="mfn-navbar">
     <nav>
         <ul>
             <li>
-                <a th:href="@{/}">Home</a>
+                <a id="mfn-navbar-home" th:href="@{/}">Home</a>
             </li>
             <li><a>Tools</a>
                 <ul>
                     <li>
-                        <a th:href="@{/contract-calculator}">Contract Calculator</a>
+                        <a id="mfn-navbar-contract-calculator" th:href="@{/contract-calculator}">Contract Calculator</a>
                     </li>
                 </ul>
             </li>
