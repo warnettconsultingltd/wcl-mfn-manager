@@ -51,13 +51,11 @@ public class HomePageSeleniumTest {
     @LocalServerPort
     private int port;
 
+    @Autowired
     private WebDriver driver;
 
     @BeforeEach
     public void loadPage() {
-        final var options = new ChromeOptions();
-        options.addArguments("--headless=new");
-        driver = new ChromeDriver(options);
         driver.get(String.format(FULL_URL,port,homeUrl));
 
         pageModel = new HomePageModel(driver);
