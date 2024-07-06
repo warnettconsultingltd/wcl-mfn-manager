@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
@@ -11,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.TestPropertySource;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
+import org.wcl.mfn.ui.integration.selenium.pageobjectmodel.HomePageModel;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,6 +25,8 @@ public class HomePageSeleniumTest {
 
     private static final String FULL_URL = "http://localhost:%d%s";
 
+    private HomePageModel pageModel;
+    
     @Value("${url.home}")
     private String homeUrl;
 
@@ -55,6 +59,8 @@ public class HomePageSeleniumTest {
         options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
         driver.get(String.format(FULL_URL,port,homeUrl));
+
+        pageModel = new HomePageModel(driver);
     }
 
     @AfterEach
@@ -66,27 +72,23 @@ public class HomePageSeleniumTest {
 
     @Test
     public void whenHomePageIsLoaded_thenNavigationBarIsPresent() {
-        assertThat(driver.findElements(By.id(mfnNavbar))).hasSize(1);
+        assertThat(pageModel.navigationBar()).isNotNull();
     }
 
     @Test
     public void whenHomePageIsLoaded_thenTitleIsCorrect() {
-        assertThat(driver.getTitle()).isEqualTo(homePageTitle);
+        assertThat(pageModel.getTitle()).isEqualTo(homePageTitle);
     }
 
     @Test
     public void whenHomePageIsLoaded_thenHomeLinkIsPresentAndCorrect() {
-        final var mfnNavbarHome = driver.findElements(By.id(mfnNavbarHomeLink));
-        assertThat(mfnNavbarHome).hasSize(1);
-        assertThat(mfnNavbarHome.getFirst().getAttribute(linkTag))
+        assertThat(pageModel.homeLink())
                 .isEqualTo(String.format(FULL_URL,port,homeUrl));
     }
 
     @Test
     public void whenHomePageIsLoaded_thenContractCalculatorLinkIsPresentAndCorrect() {
-        final var mfnNavbarContractCalculator = driver.findElements(By.id(mfnNavbarContractCalculatorLink));
-        assertThat(mfnNavbarContractCalculator).hasSize(1);
-        assertThat(mfnNavbarContractCalculator.getFirst().getAttribute(linkTag))
+        assertThat(pageModel.contractCalculatorLink())
                 .isEqualTo(String.format(FULL_URL,port,contractCalculatorUrl));
     }
 }
