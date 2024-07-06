@@ -10,18 +10,15 @@ import java.util.List;
 
 @Controller
 public class ContractCalculatorController {
-    @Value("${page.contract-calculator.title}")
-    private String title;
-
-    @Value("${view.tools.contract-calculator}")
-    private String viewName;
 
     @GetMapping("#{'${url.tools.contract-calculator}'}")
     public String contractCalculatorPage(Model model,
-                                         @Value("${common.view.attribute.page-title}") String pageTitle,
+                                         @Value("${common.view.attribute.page-title}") String pageTitleAttribute,
+                                         @Value("${page.contract-calculator.title}") String title,
                                          @Value("${contract-calculator.view.attribute.contract-parameters}") String contractParameters,
-                                         @Value("${contract-calculator.view.attribute.suggested-contracts}") String suggestedContracts) {
-        model.addAttribute(pageTitle, title);
+                                         @Value("${contract-calculator.view.attribute.suggested-contracts}") String suggestedContracts,
+                                         @Value("${view.tools.contract-calculator}") String viewName) {
+        model.addAttribute(pageTitleAttribute, title);
         model.addAttribute(contractParameters, generateBlankContractParameters());
         model.addAttribute(suggestedContracts,generateBlankContracts());
 
