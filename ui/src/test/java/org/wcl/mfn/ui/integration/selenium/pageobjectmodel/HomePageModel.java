@@ -1,28 +1,33 @@
 package org.wcl.mfn.ui.integration.selenium.pageobjectmodel;
 
 import org.openqa.selenium.*;
+import org.wcl.mfn.ui.integration.selenium.config.*;
 
 public class HomePageModel {
-    private WebDriver driver;
+    private final WebDriver driver;
+    private final HtmlAttributeConfig htmlAttributeConfig;
+    private final ElementIDConfig elementIdConfig;
 
-    private By navigationBar = By.id("mfn-navbar") ;
-    private By homeLink = By.id("mfn-navbar-home");
-    private By contractCalculatorLink = By.id("mfn-navbar-contract-calculator");
-
-    public HomePageModel(WebDriver driver) {
+    public HomePageModel(WebDriver driver,
+                         HtmlAttributeConfig htmlAttributeConfig,
+                         ElementIDConfig elementIdConfig) {
         this.driver = driver;
+        this.htmlAttributeConfig = htmlAttributeConfig;
+        this.elementIdConfig = elementIdConfig;
     }
 
     public WebElement navigationBar() {
-        return driver.findElements(navigationBar).getFirst();
+        return driver.findElements(By.id(elementIdConfig.navbar())).getFirst();
     }
 
     public String homeLink() {
-        return driver.findElements(homeLink).getFirst().getAttribute("href");
+        return driver.findElements(By.id(elementIdConfig.navbarHome())).getFirst()
+                .getAttribute(htmlAttributeConfig.link());
     }
 
     public String contractCalculatorLink() {
-        return driver.findElements(contractCalculatorLink).getFirst().getAttribute("href");
+        return driver.findElements(By.id(elementIdConfig.navbarContractCalculator())).getFirst()
+                .getAttribute(htmlAttributeConfig.link());
     }
 
     public String getTitle() {
