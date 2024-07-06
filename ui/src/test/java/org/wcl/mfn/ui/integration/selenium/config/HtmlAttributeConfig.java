@@ -6,10 +6,10 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource("classpath:application-test.properties")
-public class HtmlAttributes {
+public class HtmlAttributeConfig {
     private final String link;
 
-    public HtmlAttributes(@Value("${attribute.link}") String link) {
+    public HtmlAttributeConfig(@Value("${attribute.link}") String link) {
         this.link = link;
     }
 
