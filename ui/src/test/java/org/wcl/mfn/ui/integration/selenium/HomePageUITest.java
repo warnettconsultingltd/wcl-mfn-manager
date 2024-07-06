@@ -1,32 +1,42 @@
 package org.wcl.mfn.ui.integration.selenium;
 
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.TestPropertySource;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
+import org.wcl.mfn.ui.integration.selenium.config.ElementIDConfig;
+import org.wcl.mfn.ui.integration.selenium.config.HtmlAttributeConfig;
 import org.wcl.mfn.ui.integration.selenium.pageobjectmodel.HomePageModel;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ImportAutoConfiguration(ThymeleafAutoConfiguration.class)
-@SpringBootTest(classes= MFNHelperApplication.class,
+@SpringBootTest(classes= {MFNHelperApplication.class, HtmlAttributeConfig.class},
                 webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource({"classpath:application.properties",
                      "classpath:application-test.properties"})
-public class HomePageSeleniumTest {
+@EnableConfigurationProperties
+public class HomePageUITest {
 
     private static final String FULL_URL = "http://localhost:%d%s";
 
     private HomePageModel pageModel;
-    
+
+    @Autowired
+    private HtmlAttributeConfig htmlAttributeConfig;
+
+    @Autowired
+    private ElementIDConfig elementIdConfig;
+
     @Value("${url.home}")
     private String homeUrl;
 
@@ -35,9 +45,6 @@ public class HomePageSeleniumTest {
 
     @Value("${page.home.title}")
     private String homePageTitle;
-
-    @Value("${tag.link}")
-    private String linkTag;
 
     @Value("${mfn.navbar}")
     private String mfnNavbar;
@@ -58,7 +65,7 @@ public class HomePageSeleniumTest {
     public void loadPage() {
         driver.get(String.format(FULL_URL,port,homeUrl));
 
-        pageModel = new HomePageModel(driver);
+        pageModel = new HomePageModel(driver, htmlAttributeConfig, elementIdConfig);
     }
 
     @AfterEach
