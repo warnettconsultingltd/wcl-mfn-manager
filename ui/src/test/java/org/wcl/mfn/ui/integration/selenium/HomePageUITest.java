@@ -1,11 +1,8 @@
 package org.wcl.mfn.ui.integration.selenium;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -13,8 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.TestPropertySource;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
-import org.wcl.mfn.ui.integration.selenium.config.ElementIDConfig;
-import org.wcl.mfn.ui.integration.selenium.config.HtmlAttributeConfig;
+import org.wcl.mfn.ui.integration.selenium.config.*;
 import org.wcl.mfn.ui.integration.selenium.pageobjectmodel.HomePageModel;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,15 +41,6 @@ public class HomePageUITest {
 
     @Value("${page.home.title}")
     private String homePageTitle;
-
-    @Value("${mfn.navbar}")
-    private String mfnNavbar;
-
-    @Value("${mfn.navbar.home}")
-    private String mfnNavbarHomeLink;
-
-    @Value("${mfn.navbar.contract-calculator}")
-    private String mfnNavbarContractCalculatorLink;
 
     @LocalServerPort
     private int port;
