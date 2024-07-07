@@ -9,19 +9,21 @@
 <div th:fragment="contract-parameters-form(contract_parameters)">
     <form th:object="${contract_parameters}">
         <div class="contract-parameters-grid mfn-text">
-            <label id="minSalaryLabel" for="minSalaryAndBonus">First Year min salary and bonus</label>
+            <label id="mfn-cc-salary-label" for="minSalaryAndBonus" th:text="#{mfn.contract-calculator.salary-label.text}"></label>
             <input id="minSalaryAndBonus" type="number" th:field="${contract_parameters.salary}"/>
 
-            <label id="bonusRequiredLabel" for="bonusRequired">Bonus Required</label>
+            <label id="mfn-cc-bonus-label" for="bonusRequired">Bonus Required</label>
             <input id="bonusRequired" type="number" th:field="${contract_parameters.bonus}"/>
 
-            <label id="escalatorLabel" for="escalator">Escalator %</label>
-            <input type="range" name="escalator" id="escalator" value="5" min="5" max="100" step="5"
-                   oninput="escalator_display.value = escalator.value" th:field="${contract_parameters.escalator}">
-            <output id="escalator_display">5</output>
+            <label id="mfn-cc-escalator-label" for="mfn-cc-escalator"  th:text="#{mfn.contract-calculator.escalator-label}"></label>
+            <input type="range" name="escalator" id="mfn-cc-escalator" value="#{mfn.contract-calculator.escalator.default}"
+                   min="#{mfn.contract-calculator.escalator.default}" max="#{mfn.contract-calculator.escalator.max}"
+                   step="#{mfn.contract-calculator.escalator.step}"
+                   oninput="mfn-cc-escalator-value.value = mfn-cc-escalator.value" th:field="${contract_parameters.escalator}">
+            <output id="mfn-cc-escalator-value" th:text="#{mfn.contract-calculator.escalator.default}"></output>
 
-            <input class="contract-parameters-button" id="reset" type="reset" value="Reset"/>
-            <input class="contract-parameters-button" id="submit" type="submit" value="Submit"/>
+            <input class="contract-parameters-button" id="mfn-cc-reset" type="reset" value="Reset"/>
+            <input class="contract-parameters-button" id="mfn-cc-submit" type="submit" value="Submit"/>
         </div>
     </form>
 </div>
