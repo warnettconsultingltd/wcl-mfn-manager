@@ -64,4 +64,41 @@ public class ContractControllerPageModel {
 
     public WebElement submitButton() {
         return driver.findElement(By.id(contractCalculatorIdConfig.submitButton()));
-    }}
+    }
+
+    public WebElement suggestedContractsTable() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsTable()));
+    }
+
+    public WebElement suggestedContractsMainHeader() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsMainHeader()));
+    }
+
+    public WebElement suggestedContractsSubHeaderYears() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderYears()));
+    }
+
+    public WebElement suggestedContractsSubHeaderSalary() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderSalary()));
+    }
+
+    public WebElement suggestedContractsSubHeaderRemuneration() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderRemuneration()));
+    }
+
+    public WebElement suggestedContractsSubHeaderContractYear() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYear()));
+    }
+
+    public WebElement suggestedContractsSubHeaderContractYearSalary() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYearSalary()));
+    }
+
+    public WebElement suggestedContractsSubHeaderContractYearlyBonus() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYearlyBonus()));
+    }
+
+    public WebElement suggestedContractsSubHeaderContractYearlyTotal() {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYearlyTotal()));
+    }
+}

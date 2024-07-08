@@ -7,38 +7,44 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @PropertySource("classpath:application-test.properties")
 public class ContractCalculatorIDConfig {
-    private final String navbar;
-    private final String navbarHome;
-    private final String navbarContractCalculator;
-    private final String salaryLabel;
-    private final String bonusLabel;
-    private final String escalatorLabel;
-    private final String escalator;
-    private final String escalatorValue;
-    private final String resetButton;
-    private final String submitButton;
-
-    public ContractCalculatorIDConfig(@Value("${mfn.navbar}") String navbar,
-                                      @Value("${mfn.navbar.home}") String navbarHome,
-                                      @Value("${mfn.navbar.contract-calculator}") String navbarContractCalculator,
-                                      @Value("${mfn.contract-calculator.salary-label}") String salaryLabel,
-                                      @Value("${mfn.contract-calculator.bonus-label}") String bonusLabel,
-                                      @Value("${mfn.contract-calculator.escalator-label}") String escalatorLabel,
-                                      @Value("${mfn.contract-calculator.escalator}") String escalator,
-                                      @Value("${mfn.contract-calculator.escalator-value}") String escalatorValue,
-                                      @Value("${mfn.contract-calculator.reset-button}") String resetButton,
-                                      @Value("${mfn.contract-calculator.submit-button}") String submitButton) {
-        this.navbar = navbar;
-        this.navbarHome = navbarHome;
-        this.navbarContractCalculator = navbarContractCalculator;
-        this.salaryLabel = salaryLabel;
-        this.bonusLabel = bonusLabel;
-        this.escalatorLabel = escalatorLabel;
-        this.escalator = escalator;
-        this.escalatorValue = escalatorValue;
-        this.resetButton = resetButton;
-        this.submitButton = submitButton;
-    }
+    @Value("${mfn.navbar}")
+    private String navbar;
+    @Value("${mfn.navbar.home}")
+    private String navbarHome;
+    @Value("${mfn.navbar.contract-calculator}")
+    private String navbarContractCalculator;
+    @Value("${mfn.contract-calculator.salary-label}")
+    private String salaryLabel;
+    @Value("${mfn.contract-calculator.bonus-label}")
+    private String bonusLabel;
+    @Value("${mfn.contract-calculator.escalator-label}")
+    private String escalatorLabel;
+    @Value("${mfn.contract-calculator.escalator}")
+    private String escalator;
+    @Value("${mfn.contract-calculator.escalator-value}")
+    private String escalatorValue;
+    @Value("${mfn.contract-calculator.reset-button}")
+    private String resetButton;
+    @Value("${mfn.contract-calculator.submit-button}")
+    private String submitButton;
+    @Value("${mfn.contract-calculator.suggested-contracts.table}")
+    private String suggestedContractsTable;
+    @Value("${mfn.contract-calculator.suggested-contracts.main-header}")
+    private String suggestedContractsMainHeader;
+    @Value("${mfn.contract-calculator.suggested-contracts.sub-header.years}")
+    private String suggestedContractsSubHeaderYears;
+    @Value("${mfn.contract-calculator.suggested-contracts.sub-header.salary}")
+    private String suggestedContractsSubHeaderSalary;
+    @Value("${mfn.contract-calculator.suggested-contracts.sub-header.remuneration}")
+    private String suggestedContractsSubHeaderRemuneration;
+    @Value("${mfn.contract-calculator.suggested-contracts.sub-header.contract-year}")
+    private String suggestedContractsSubHeaderContractYear;
+    @Value("${mfn.contract-calculator.suggested-contracts.sub-header.contract-year-salary}")
+    private String suggestedContractsSubHeaderContractYearSalary;
+    @Value("${mfn.contract-calculator.suggested-contracts.sub-header.contract-year-bonus}")
+    private String suggestedContractsSubHeaderContractYearlyBonus;
+    @Value("${mfn.contract-calculator.suggested-contracts.sub-header.contract-year-total}")
+    private String suggestedContractsSubHeaderContractYearlyTotal;
 
     public String navbar() {
         return navbar;
@@ -65,4 +71,21 @@ public class ContractCalculatorIDConfig {
     public String resetButton() { return resetButton; }
 
     public String submitButton() { return submitButton; }
+
+    public String suggestedContractsTable() { return suggestedContractsTable;}
+
+    public String suggestedContractsMainHeader() { return suggestedContractsMainHeader;}
+
+    public String suggestedContractsSubHeaderYears() { return suggestedContractsSubHeaderYears;}
+
+    public String suggestedContractsSubHeaderSalary() { return suggestedContractsSubHeaderSalary;}
+
+    public String suggestedContractsSubHeaderRemuneration() { return suggestedContractsSubHeaderRemuneration;}
+
+    public String suggestedContractsSubHeaderContractYear() { return suggestedContractsSubHeaderContractYear;}
+
+    public String suggestedContractsSubHeaderContractYearSalary() { return suggestedContractsSubHeaderContractYearSalary;}
+
+    public String suggestedContractsSubHeaderContractYearlyBonus() { return suggestedContractsSubHeaderContractYearlyBonus;}
+    public String suggestedContractsSubHeaderContractYearlyTotal() { return suggestedContractsSubHeaderContractYearlyTotal;}
 }

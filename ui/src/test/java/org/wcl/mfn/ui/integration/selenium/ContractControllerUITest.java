@@ -1,11 +1,10 @@
 package org.wcl.mfn.ui.integration.selenium;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.openqa.selenium.WebElement;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -13,17 +12,19 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.TestPropertySource;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
-import org.wcl.mfn.ui.integration.selenium.config.ContractCalculatorIDConfig;
-import org.wcl.mfn.ui.integration.selenium.config.HtmlAttributeConfig;
+import org.wcl.mfn.ui.integration.selenium.config.*;
 import org.wcl.mfn.ui.integration.selenium.pageobjectmodel.ContractControllerPageModel;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import static org.assertj.core.api.Assertions.*;
 
 @ImportAutoConfiguration(ThymeleafAutoConfiguration.class)
-@SpringBootTest(classes= {MFNHelperApplication.class, HtmlAttributeConfig.class},
-                webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {MFNHelperApplication.class, HtmlAttributeConfig.class},
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource({"classpath:application.properties",
-                     "classpath:application-test.properties"})
+        "classpath:application-test.properties"})
 @EnableConfigurationProperties
 public class ContractControllerUITest {
 
@@ -54,7 +55,7 @@ public class ContractControllerUITest {
 
     @BeforeEach
     public void loadPage() {
-        driver.get(String.format(FULL_URL,port,contractCalculatorUrl));
+        driver.get(String.format(FULL_URL, port, contractCalculatorUrl));
 
         pageModel = new ContractControllerPageModel(driver, htmlAttributeConfig, contractCalculatorIdConfig);
     }
@@ -79,13 +80,13 @@ public class ContractControllerUITest {
     @Test
     public void whenContractControllerPageIsLoaded_thenHomeLinkIsPresent() {
         assertThat(pageModel.homeLink())
-                .isEqualTo(String.format(FULL_URL,port,homeUrl));
+                .isEqualTo(String.format(FULL_URL, port, homeUrl));
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenContractCalculatorLinkIsPresent() {
         assertThat(pageModel.contractCalculatorLink())
-                .isEqualTo(String.format(FULL_URL,port,contractCalculatorUrl));
+                .isEqualTo(String.format(FULL_URL, port, contractCalculatorUrl));
     }
 
     // Contract Parameters Tests
@@ -117,6 +118,7 @@ public class ContractControllerUITest {
         assertThat(pageModel.escalatorValue().getText())
                 .isEqualTo("5");
     }
+
     @Test
     public void whenContractControllerPageIsLoaded_thenResetButtonIsPresent() {
         assertThat(pageModel.resetButton().getAttribute("value"))
@@ -127,5 +129,76 @@ public class ContractControllerUITest {
     public void whenContractControllerPageIsLoaded_thenSubmitButtonIsPresent() {
         assertThat(pageModel.submitButton().getAttribute("value"))
                 .isEqualTo("Submit");
+    }
+
+
+    // SUGGESTED CONTRACTS
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsTableIsPresent() {
+        assertThat(pageModel.suggestedContractsTable())
+                .isNotNull();
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsTableMainHeaderIsPresent() {
+        assertThat(pageModel.suggestedContractsMainHeader().getText())
+                .isEqualTo("Suggested Contract Details");
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsTableSubHeaderIsPresent() {
+        final var subHeaders = List.of(pageModel.suggestedContractsSubHeaderYears(),
+                pageModel.suggestedContractsSubHeaderSalary(),
+                pageModel.suggestedContractsSubHeaderRemuneration(),
+                pageModel.suggestedContractsSubHeaderContractYear(),
+                pageModel.suggestedContractsSubHeaderContractYearSalary(),
+                pageModel.suggestedContractsSubHeaderContractYearlyBonus(),
+                pageModel.suggestedContractsSubHeaderContractYearlyTotal()
+        );
+
+        final var expectedSubHeaderTexts = List.of("Year", "Total Salary", "Total Salary and Bonus", "Year", "Salary",
+                "Bonus per Year", "Total per Year");
+
+        IntStream.range(0, subHeaders.size()).forEach(i ->
+                assertThat(subHeaders.get(i).getText()).isEqualTo(expectedSubHeaderTexts.get(i)));
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractYearsArePresent() {
+        notYetImplemented();
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractTotalSalaryArePresent() {
+        notYetImplemented();
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractTotalRemunerationArePresent() {
+        notYetImplemented();
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractCurrentYearsArePresent() {
+        notYetImplemented();
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractCurrentYearSalaryArePresent() {
+        notYetImplemented();
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractBonusPerYearArePresent() {
+        notYetImplemented();
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractCurrentTotalPerYearArePresent() {
+        notYetImplemented();
+    }
+
+    private void notYetImplemented() {
+        assertThat("null").isNull();
     }
 }
