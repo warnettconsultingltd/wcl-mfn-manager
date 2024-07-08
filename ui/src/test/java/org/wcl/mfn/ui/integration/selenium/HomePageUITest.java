@@ -73,13 +73,13 @@ public class HomePageUITest {
     }
 
     @Test
-    public void whenHomePageIsLoaded_thenHomeLinkIsPresentAndCorrect() {
+    public void whenHomePageIsLoaded_thenHomeLinkIsPresent() {
         assertThat(pageModel.homeLink())
                 .isEqualTo(String.format(FULL_URL,port,homeUrl));
     }
 
     @Test
-    public void whenHomePageIsLoaded_thenContractCalculatorLinkIsPresentAndCorrect() {
+    public void whenHomePageIsLoaded_thenContractCalculatorLinkIsPresent() {
         assertThat(pageModel.contractCalculatorLink())
                 .isEqualTo(String.format(FULL_URL,port,contractCalculatorUrl));
     }

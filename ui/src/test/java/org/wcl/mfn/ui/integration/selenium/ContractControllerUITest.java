@@ -77,54 +77,54 @@ public class ContractControllerUITest {
     }
 
     @Test
-    public void whenContractControllerPageIsLoaded_thenHomeLinkIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenHomeLinkIsPresent() {
         assertThat(pageModel.homeLink())
                 .isEqualTo(String.format(FULL_URL,port,homeUrl));
     }
 
     @Test
-    public void whenContractControllerPageIsLoaded_thenContractCalculatorLinkIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenContractCalculatorLinkIsPresent() {
         assertThat(pageModel.contractCalculatorLink())
                 .isEqualTo(String.format(FULL_URL,port,contractCalculatorUrl));
     }
 
     // Contract Parameters Tests
     @Test
-    public void whenContractControllerPageIsLoaded_thenSalaryLabelIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenSalaryLabelIsPresent() {
         assertThat(pageModel.salaryLabel().getText())
                 .isEqualTo("Minimum Salary");
     }
 
     @Test
-    public void whenContractControllerPageIsLoaded_thenBonusLabelIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenBonusLabelIsPresent() {
         assertThat(pageModel.bonusLabel().getText())
                 .isEqualTo("Bonus Required");
     }
 
     @Test
-    public void whenContractControllerPageIsLoaded_thenEscalatorLabelIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenEscalatorLabelIsPresent() {
         assertThat(pageModel.escalatorLabel().getText())
                 .isEqualTo("Escalator %");
     }
 
     @Test
-    public void whenContractControllerPageIsLoaded_thenEscalatorIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenEscalatorIsPresent() {
         assertThat(pageModel.escalator()).isNotNull();
     }
 
     @Test
-    public void whenContractControllerPageIsLoaded_thenEscalatorOutputIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenEscalatorOutputIsPresent() {
         assertThat(pageModel.escalatorValue().getText())
                 .isEqualTo("5");
     }
     @Test
-    public void whenContractControllerPageIsLoaded_thenResetButtonIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenResetButtonIsPresent() {
         assertThat(pageModel.resetButton().getAttribute("value"))
                 .isEqualTo("Reset");
     }
 
     @Test
-    public void whenContractControllerPageIsLoaded_thenSubmitButtonIsPresentAndCorrect() {
+    public void whenContractControllerPageIsLoaded_thenSubmitButtonIsPresent() {
         assertThat(pageModel.submitButton().getAttribute("value"))
                 .isEqualTo("Submit");
     }
