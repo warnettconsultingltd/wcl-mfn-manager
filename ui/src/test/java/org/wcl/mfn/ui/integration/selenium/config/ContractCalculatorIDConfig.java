@@ -45,6 +45,20 @@ public class ContractCalculatorIDConfig {
     private String suggestedContractsSubHeaderContractYearlyBonus;
     @Value("${mfn.contract-calculator.suggested-contracts.sub-header.contract-year-total}")
     private String suggestedContractsSubHeaderContractYearlyTotal;
+    @Value("${mfn.contract-calculator.suggested-contracts.contract-years}")
+    private String suggestedContractsContractYears;
+    @Value("${mfn.contract-calculator.suggested-contracts.total-salary}")
+    private String suggestedContractsTotalSalary;
+    @Value("${mfn.contract-calculator.suggested-contracts.total-remuneration}")
+    private String suggestedContractsTotalRemuneration;
+    @Value("${mfn.contract-calculator.suggested-contracts.current-year}")
+    private String suggestedContractsCurrentYear;
+    @Value("${mfn.contract-calculator.suggested-contracts.year-salary}")
+    private String suggestedContractsYearSalary;
+    @Value("${mfn.contract-calculator.suggested-contracts.bonus-per-year}")
+    private String suggestedContractsBonusPerYear;
+    @Value("${mfn.contract-calculator.suggested-contracts.total-per-year}")
+    private String suggestedContractsTotalPerYear;
 
     public String navbar() {
         return navbar;
@@ -88,4 +102,11 @@ public class ContractCalculatorIDConfig {
 
     public String suggestedContractsSubHeaderContractYearlyBonus() { return suggestedContractsSubHeaderContractYearlyBonus;}
     public String suggestedContractsSubHeaderContractYearlyTotal() { return suggestedContractsSubHeaderContractYearlyTotal;}
+    public String suggestedContractsContractYears() { return suggestedContractsContractYears; }
+    public String suggestedContractsTotalSalary() { return suggestedContractsTotalSalary; }
+    public String suggestedContractsTotalRemuneration() { return suggestedContractsTotalRemuneration; }
+    public String suggestedContractsCurrentYear() { return suggestedContractsCurrentYear; }
+    public String suggestedContractsYearSalary() { return suggestedContractsYearSalary; }
+    public String suggestedContractsBonusPerYear() { return suggestedContractsBonusPerYear; }
+    public String suggestedContractsTotalPerYear() { return suggestedContractsTotalPerYear; }
 }

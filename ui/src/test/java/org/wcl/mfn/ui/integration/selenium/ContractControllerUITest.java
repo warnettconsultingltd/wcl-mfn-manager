@@ -146,7 +146,7 @@ public class ContractControllerUITest {
     }
 
     @Test
-    public void whenContractControllerPageIsLoaded_thenSuggestedContractsTableSubHeaderIsPresent() {
+    public void whenContractControllerPageIsLoaded_thenSuggestedContractsTableSubHeadersArePresent() {
         final var subHeaders = List.of(pageModel.suggestedContractsSubHeaderYears(),
                 pageModel.suggestedContractsSubHeaderSalary(),
                 pageModel.suggestedContractsSubHeaderRemuneration(),
@@ -156,8 +156,9 @@ public class ContractControllerUITest {
                 pageModel.suggestedContractsSubHeaderContractYearlyTotal()
         );
 
-        final var expectedSubHeaderTexts = List.of("Year", "Total Salary", "Total Salary and Bonus", "Year", "Salary",
+        final var expectedSubHeaderTexts = List.of("Years", "Total Salary", "Total Remuneration", "Contract Year", "Salary",
                 "Bonus per Year", "Total per Year");
+
 
         IntStream.range(0, subHeaders.size()).forEach(i ->
                 assertThat(subHeaders.get(i).getText()).isEqualTo(expectedSubHeaderTexts.get(i)));
@@ -165,40 +166,45 @@ public class ContractControllerUITest {
 
     @Test
     public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractYearsArePresent() {
-        notYetImplemented();
+        IntStream.rangeClosed(1,5).forEach(i ->
+            assertThat(pageModel.contractYears(i).getText()).isEqualTo(Integer.toString(i+1)));
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractTotalSalaryArePresent() {
-        notYetImplemented();
+        IntStream.rangeClosed(1,5).forEach(i ->
+                assertThat(pageModel.totalSalary(i).getText()).isEqualTo(Integer.toString(0)));
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractTotalRemunerationArePresent() {
-        notYetImplemented();
+        IntStream.rangeClosed(1,5).forEach(i ->
+                assertThat(pageModel.totalRemuneration(i).getText()).isEqualTo(Integer.toString(0)));
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractCurrentYearsArePresent() {
-        notYetImplemented();
+        final var contractYearsValues = List.of(1,2,1,2,3,1,2,3,4,1,2,3,4,5,1,2,3,4,5,6);
+        IntStream.rangeClosed(1,20).forEach(i ->
+                assertThat(pageModel.currentYear(i).getText()).isEqualTo(Integer.toString(contractYearsValues.get(i-1))));
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractCurrentYearSalaryArePresent() {
-        notYetImplemented();
+        IntStream.rangeClosed(1,20).forEach(i ->
+                assertThat(pageModel.yearSalary(i).getText()).isEqualTo(Integer.toString(0)));
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractBonusPerYearArePresent() {
-        notYetImplemented();
+        IntStream.rangeClosed(1,5).forEach(i ->
+                assertThat(pageModel.bonusPerYear(i).getText()).isEqualTo(Integer.toString(0)));
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenSuggestedContractsContractCurrentTotalPerYearArePresent() {
-        notYetImplemented();
+        IntStream.rangeClosed(1,20).forEach(i ->
+                assertThat(pageModel.totalPerYear(i).getText()).isEqualTo(Integer.toString(0)));
     }
 
-    private void notYetImplemented() {
-        assertThat("null").isNull();
-    }
 }

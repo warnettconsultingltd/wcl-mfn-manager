@@ -101,4 +101,34 @@ public class ContractControllerPageModel {
     public WebElement suggestedContractsSubHeaderContractYearlyTotal() {
         return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYearlyTotal()));
     }
+
+    public WebElement contractYears(int yearIndex) {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsContractYears()+yearIndex));
+    }
+
+    public WebElement totalSalary(int yearIndex) {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsTotalSalary()+yearIndex));
+    }
+
+    public WebElement totalRemuneration(int yearIndex) {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsTotalRemuneration()+yearIndex));
+    }
+
+    public WebElement currentYear(int index) {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsCurrentYear()+index));
+    }
+
+    public WebElement yearSalary(int index) {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsYearSalary()+index));
+    }
+
+    public WebElement bonusPerYear(int index) {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsBonusPerYear() + index));
+    }
+
+    public WebElement totalPerYear(int yearIndex) {
+        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsTotalPerYear()+yearIndex));
+    }
+
+
 }

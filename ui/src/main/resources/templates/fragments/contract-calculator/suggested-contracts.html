@@ -13,39 +13,39 @@
             <td id="mfn-cc-contracts-main-header" colspan="7">Suggested Contract Details</td>
         </tr>
         <tr>
-            <td id="mfn-cc-contracts-sub-header-years)}">Years</td>
+            <td id="mfn-cc-contracts-sub-header-years">Years</td>
             <td id="mfn-cc-contracts-sub-header-salary">Total Salary</td>
             <td id="mfn-cc-contracts-sub-header-remuneration">Total Remuneration</td>
-            <td id="mfn-cc-contracts-sub-header-contract-year">Year</td>
+            <td id="mfn-cc-contracts-sub-header-contract-year">Contract Year</td>
             <td id="mfn-cc-contracts-sub-header-contract-year-salary">Salary</td>
             <td id="mfn-cc-contracts-sub-header-contract-yearly-bonus">Bonus per Year</td>
-            <td id="mfn-cc-contracts-sub-header-contract-yearly-total">Total per Year</td>
+            <td id="mfn-cc-contracts-sub-header-contract-year-total">Total per Year</td>
         </tr>
         </thead>
         <tbody th:if="${ not#lists.isEmpty(suggested_contracts)}">
         <tr th:each="contract : ${suggested_contracts}">
-            <td th:id="${#ids.seq('years')}" th:text="${contract.years}"></td>
-            <td th:text="${contract.totalSalary}"></td>
-            <td th:text="${contract.totalRemuneration}"></td>
+            <td th:id="${#ids.seq('mfn-cc-contracts-years')}" th:text="${contract.years}"></td>
+            <td th:id="${#ids.seq('mfn-cc-contracts-total-salary')}" th:text="${contract.totalSalary}"></td>
+            <td th:id="${#ids.seq('mfn-cc-contracts-total-remuneration')}" th:text="${contract.totalRemuneration}"></td>
             <td>
                 <table class="nested-table">
                     <tr th:each="year : ${contract.listedYears}">
-                        <td th:text="${year}"></td>
+                        <td th:id="${#ids.seq('mfn-cc-contracts-year')}" th:text="${year}"></td>
                     </tr>
                 </table>
             </td>
             <td>
                 <table class="nested-table">
                     <tr th:each="yearlySalary : ${contract.yearlySalaries}">
-                        <td th:text="${yearlySalary}"></td>
+                        <td th:id="${#ids.seq('mfn-cc-contracts-year-salary')}" th:text="${yearlySalary}"></td>
                     </tr>
                 </table>
             </td>
-            <td th:text="${contract.bonusPerYear}"></td>
+            <td th:id="${#ids.seq('mfn-cc-contracts-bonus-per-year')}" th:text="${contract.bonusPerYear}"></td>
             <td>
                 <table class="nested-table">
                     <tr th:each="totalPerYear : ${contract.totalsPerYear}">
-                        <td th:text="${totalPerYear}"></td>
+                        <td th:id="${#ids.seq('mfn-cc-contracts-total-per-year')}" th:text="${totalPerYear}"></td>
                     </tr>
                 </table>
             </td>
@@ -54,13 +54,13 @@
     </table>
 </div>
 
-<ul>
-    <li
-            th:each="property: ${postType.getProperties()}"
-            th:id="${#ids.seq('property')}"
-            th:text="${property.getDisplayName()}"
-    ></li>
-</ul>
+<!--<ul>-->
+<!--    <li-->
+<!--            th:each="property: ${postType.getProperties()}"-->
+<!--            th:id="${#ids.seq('property')}"-->
+<!--            th:text="${property.getDisplayName()}"-->
+<!--    ></li>-->
+<!--</ul>-->
 
 
 </body>
