@@ -1,4 +1,4 @@
-package org.wcl.mfn.ui.model;
+package org.wcl.mfn.ui.model.tools.contractcalculator;
 
 import java.util.List;
 import java.util.stream.IntStream;
