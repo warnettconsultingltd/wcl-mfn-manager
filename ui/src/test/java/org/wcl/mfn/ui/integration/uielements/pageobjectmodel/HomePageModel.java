@@ -1,7 +1,7 @@
-package org.wcl.mfn.ui.integration.selenium.pageobjectmodel;
+package org.wcl.mfn.ui.integration.uielements.pageobjectmodel;
 
 import org.openqa.selenium.*;
-import org.wcl.mfn.ui.integration.selenium.config.*;
+import org.wcl.mfn.ui.integration.uielements.config.*;
 
 public class HomePageModel {
     private final WebDriver driver;

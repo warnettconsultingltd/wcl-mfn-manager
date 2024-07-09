@@ -1,4 +1,4 @@
-package org.wcl.mfn.ui.integration.selenium;
+package org.wcl.mfn.ui.integration.uielements;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -10,8 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.TestPropertySource;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
-import org.wcl.mfn.ui.integration.selenium.config.*;
-import org.wcl.mfn.ui.integration.selenium.pageobjectmodel.HomePageModel;
+import org.wcl.mfn.ui.integration.uielements.config.*;
+import org.wcl.mfn.ui.integration.uielements.pageobjectmodel.HomePageModel;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

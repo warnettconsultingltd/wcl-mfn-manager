@@ -1,9 +1,7 @@
-package org.wcl.mfn.ui.integration.selenium;
+package org.wcl.mfn.ui.integration.uielements;
 
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
@@ -12,8 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.TestPropertySource;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
-import org.wcl.mfn.ui.integration.selenium.config.*;
-import org.wcl.mfn.ui.integration.selenium.pageobjectmodel.ContractControllerPageModel;
+import org.wcl.mfn.ui.integration.uielements.config.*;
+import org.wcl.mfn.ui.integration.uielements.pageobjectmodel.ContractControllerPageModel;
 
 import java.util.List;
 import java.util.stream.IntStream;

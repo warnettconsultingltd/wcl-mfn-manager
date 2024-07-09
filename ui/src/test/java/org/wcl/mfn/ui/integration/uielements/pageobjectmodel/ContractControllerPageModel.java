@@ -1,10 +1,10 @@
-package org.wcl.mfn.ui.integration.selenium.pageobjectmodel;
+package org.wcl.mfn.ui.integration.uielements.pageobjectmodel;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.wcl.mfn.ui.integration.selenium.config.ContractCalculatorIDConfig;
-import org.wcl.mfn.ui.integration.selenium.config.HtmlAttributeConfig;
+import org.wcl.mfn.ui.integration.uielements.config.ContractCalculatorIDConfig;
+import org.wcl.mfn.ui.integration.uielements.config.HtmlAttributeConfig;
 
 public class ContractControllerPageModel {
     private final WebDriver driver;

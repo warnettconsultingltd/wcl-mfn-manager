@@ -1,4 +1,4 @@
-package org.wcl.mfn.ui.integration.selenium.config;
+package org.wcl.mfn.ui.integration.uielements.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

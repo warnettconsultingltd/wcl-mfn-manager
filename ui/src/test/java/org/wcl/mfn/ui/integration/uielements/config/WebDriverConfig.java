@@ -1,4 +1,4 @@
-package org.wcl.mfn.ui.integration.selenium.config;
+package org.wcl.mfn.ui.integration.uielements.config;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
