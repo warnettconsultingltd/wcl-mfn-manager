@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:application-test.properties")
+@PropertySource("classpath:ui.properties")
 public class ElementIDConfig {
     private final String navbar;
     private final String navbarHome;
