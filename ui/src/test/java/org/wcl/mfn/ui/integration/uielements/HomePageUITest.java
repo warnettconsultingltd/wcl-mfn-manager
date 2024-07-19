@@ -18,8 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ImportAutoConfiguration(ThymeleafAutoConfiguration.class)
 @SpringBootTest(classes= {MFNHelperApplication.class, HtmlAttributeConfig.class},
                 webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource({"classpath:application.properties",
-                     "classpath:application-test.properties"})
+@TestPropertySource({"classpath:application.properties"})
 @EnableConfigurationProperties
 public class HomePageUITest {
 
