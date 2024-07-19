@@ -1,6 +1,7 @@
 package org.wcl.mfn.ui.controller.tools;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.wcl.mfn.ui.model.tools.contractcalculator.SuggestedYearContract;
 import java.util.List;
 
 @Controller
+@PropertySource("url.properties")
 public class ContractCalculatorController {
 
     @GetMapping("#{'${url.tools.contract-calculator}'}")
