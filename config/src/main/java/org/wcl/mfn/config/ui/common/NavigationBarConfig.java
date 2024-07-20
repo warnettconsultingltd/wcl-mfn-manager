@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@PropertySource("ui/ui.properties")
+@PropertySource("common/navigation-bar.properties")
 public class NavigationBarConfig {
     @Value("${mfn.navbar}")
     private String navigationBarId;
