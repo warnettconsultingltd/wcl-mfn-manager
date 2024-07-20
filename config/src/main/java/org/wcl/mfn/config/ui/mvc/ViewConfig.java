@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@PropertySource({"classpath:view.properties"})
+@PropertySource({"ui/mvc/view/view.properties"})
 public class ViewConfig {
     @Value("${view.home}")
     private String homeView;
