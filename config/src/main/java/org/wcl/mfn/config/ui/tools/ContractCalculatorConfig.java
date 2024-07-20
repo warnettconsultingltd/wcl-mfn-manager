@@ -7,12 +7,6 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @PropertySource("ui/tools/contract-calculator.properties")
 public class ContractCalculatorConfig {
-    @Value("${mfn.navbar}")
-    private String navbar;
-    @Value("${mfn.navbar.home}")
-    private String navbarHome;
-    @Value("${mfn.navbar.contract-calculator}")
-    private String navbarContractCalculator;
     @Value("${mfn.contract-calculator.salary-label}")
     private String salaryLabel;
     @Value("${mfn.contract-calculator.bonus-label}")
@@ -59,16 +53,6 @@ public class ContractCalculatorConfig {
     private String suggestedContractsBonusPerYear;
     @Value("${mfn.contract-calculator.suggested-contracts.total-per-year}")
     private String suggestedContractsTotalPerYear;
-
-    public String navbar() {
-        return navbar;
-    }
-    public String navbarHome() {
-        return navbarHome;
-    }
-    public String navbarContractCalculator() {
-        return navbarContractCalculator;
-    }
 
     public String salaryLabel() { return salaryLabel; }
     public String bonusLabel() { return bonusLabel; }
