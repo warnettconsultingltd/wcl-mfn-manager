@@ -7,6 +7,11 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @PropertySource("ui/tools/contract-calculator.properties")
 public class ContractCalculatorConfig {
+    @Value("${contract-calculator.view.attribute.contract_parameters}")
+    private String contractParameters;
+    @Value("${contract-calculator.view.attribute.suggested_contracts}")
+    private String suggestedContracts;
+
     @Value("${mfn.contract-calculator.salary-label}")
     private String salaryLabel;
     @Value("${mfn.contract-calculator.bonus-label}")
@@ -53,6 +58,9 @@ public class ContractCalculatorConfig {
     private String suggestedContractsBonusPerYear;
     @Value("${mfn.contract-calculator.suggested-contracts.total-per-year}")
     private String suggestedContractsTotalPerYear;
+
+    public String contractParameters() { return contractParameters; }
+    public String suggestedContracts() { return suggestedContracts;}
 
     public String salaryLabel() { return salaryLabel; }
     public String bonusLabel() { return bonusLabel; }
