@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("tools/contract-calculator.properties")
-public class ContractCalculatorIDConfig {
+@PropertySource("ui/tools/contract-calculator.properties")
+public class ContractCalculatorConfig {
     @Value("${mfn.navbar}")
     private String navbar;
     @Value("${mfn.navbar.home}")
