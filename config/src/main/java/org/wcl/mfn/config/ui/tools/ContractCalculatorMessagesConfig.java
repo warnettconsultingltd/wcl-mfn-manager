@@ -1,17 +1,16 @@
 package org.wcl.mfn.config.ui.tools;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
 @Configuration
 @PropertySource("ui/tools/contract-calculator-messages.properties")
 public class ContractCalculatorMessagesConfig {
-    @Value("${mfn.contract-calculator.salary-label.text}")
+    @Value("${mfn.contract-calculator.salary-label}")
     private String minSalary;
-    @Value("${mfn.contract-calculator.bonus-label.text}")
+    @Value("${mfn.contract-calculator.bonus-label}")
     private String bonus;
-    @Value("${mfn.contract-calculator.escalator-label.text}")
+    @Value("${mfn.contract-calculator.escalator-label}")
     private String escalator;
     @Value("${mfn.contract-calculator.reset-button}")
     private String reset;
