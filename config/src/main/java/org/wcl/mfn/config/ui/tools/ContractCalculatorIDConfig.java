@@ -1,11 +1,11 @@
-package org.wcl.mfn.ui.integration.uielements.config;
+package org.wcl.mfn.config.ui.tools;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:ui.properties")
+@PropertySource("tools/contract-calculator.properties")
 public class ContractCalculatorIDConfig {
     @Value("${mfn.navbar}")
     private String navbar;
@@ -63,43 +63,28 @@ public class ContractCalculatorIDConfig {
     public String navbar() {
         return navbar;
     }
-
     public String navbarHome() {
         return navbarHome;
     }
-
     public String navbarContractCalculator() {
         return navbarContractCalculator;
     }
 
     public String salaryLabel() { return salaryLabel; }
-
     public String bonusLabel() { return bonusLabel; }
-
     public String escalatorLabel() { return escalatorLabel; }
-
     public String escalator() { return escalator; }
-
     public String escalatorValue() { return escalatorValue; }
-
     public String resetButton() { return resetButton; }
-
     public String submitButton() { return submitButton; }
 
     public String suggestedContractsTable() { return suggestedContractsTable;}
-
     public String suggestedContractsMainHeader() { return suggestedContractsMainHeader;}
-
     public String suggestedContractsSubHeaderYears() { return suggestedContractsSubHeaderYears;}
-
     public String suggestedContractsSubHeaderSalary() { return suggestedContractsSubHeaderSalary;}
-
     public String suggestedContractsSubHeaderRemuneration() { return suggestedContractsSubHeaderRemuneration;}
-
     public String suggestedContractsSubHeaderContractYear() { return suggestedContractsSubHeaderContractYear;}
-
     public String suggestedContractsSubHeaderContractYearSalary() { return suggestedContractsSubHeaderContractYearSalary;}
-
     public String suggestedContractsSubHeaderContractYearlyBonus() { return suggestedContractsSubHeaderContractYearlyBonus;}
     public String suggestedContractsSubHeaderContractYearlyTotal() { return suggestedContractsSubHeaderContractYearlyTotal;}
     public String suggestedContractsContractYears() { return suggestedContractsContractYears; }
