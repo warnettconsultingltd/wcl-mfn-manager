@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@PropertySource("ui/common/page-title.properties")
+@PropertySource("classpath:ui/common/page-title.properties")
 public class PageTitleConfig {
     @Value("${page.home.title}")
     private String homePageTitle;

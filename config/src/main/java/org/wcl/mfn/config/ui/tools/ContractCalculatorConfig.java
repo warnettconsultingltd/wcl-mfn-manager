@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("ui/tools/contract-calculator.properties")
+@PropertySource("classpath:ui/tools/contract-calculator.properties")
 public class ContractCalculatorConfig {
     @Value("${contract-calculator.view.attribute.contract_parameters}")
     private String contractParameters;

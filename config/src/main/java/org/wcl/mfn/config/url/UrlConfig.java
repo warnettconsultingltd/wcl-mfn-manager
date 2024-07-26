@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@PropertySource("classpath:url.properties")
+@PropertySource("classpath:url/url.properties")
 public class UrlConfig {
     @Value("${url.home}")
     private String homeUrl;

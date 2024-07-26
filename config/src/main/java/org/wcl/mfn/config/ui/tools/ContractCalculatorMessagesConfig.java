@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@PropertySource("ui/tools/contract-calculator-messages.properties")
+@PropertySource("classpath:ui/tools/contract-calculator-messages.properties")
 public class ContractCalculatorMessagesConfig {
     @Value("${mfn.contract-calculator.salary-label}")
     private String minSalary;
