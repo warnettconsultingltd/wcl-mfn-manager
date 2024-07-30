@@ -24,7 +24,7 @@ public class HomeController {
     public String homePage(Model model) {
         model.addAttribute(modelConfig.pageTitle(), pageTitleConfig.homePageTitle());
 
-        return viewConfig.contractCalculatorView();
+        return viewConfig.homeView();
     }
 
 }
