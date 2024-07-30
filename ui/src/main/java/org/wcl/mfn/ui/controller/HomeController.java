@@ -9,7 +9,7 @@ import org.wcl.mfn.config.ui.common.PageTitleConfig;
 import org.wcl.mfn.config.ui.mvc.*;
 
 @Controller
-@PropertySource({"classpath:url.properties"})
+@PropertySource("classpath:/url/url.properties")
 public class HomeController {
     @Autowired
     private PageTitleConfig pageTitleConfig;

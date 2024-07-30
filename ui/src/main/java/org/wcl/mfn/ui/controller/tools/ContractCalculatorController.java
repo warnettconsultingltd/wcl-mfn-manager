@@ -13,7 +13,7 @@ import org.wcl.mfn.ui.model.tools.contractcalculator.SuggestedYearContract;
 import java.util.List;
 
 @Controller
-@PropertySource({"classpath:url.properties"})
+@PropertySource("classpath:/url/url.properties")
 public class ContractCalculatorController {
 
     @Autowired
