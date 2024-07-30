@@ -6,10 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.wcl.mfn.ui.controller.HomeController;
 import org.wcl.mfn.ui.controller.tools.ContractCalculatorController;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
+@SpringBootTest(classes=TestConfig.class)
 @ContextConfiguration(classes = {HomeController.class, ContractCalculatorController.class})
 public class ContextSmokeTest {
     @Autowired
