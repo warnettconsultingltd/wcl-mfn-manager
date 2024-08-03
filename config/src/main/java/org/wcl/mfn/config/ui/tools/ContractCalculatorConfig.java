@@ -20,6 +20,12 @@ public class ContractCalculatorConfig {
     private String escalatorLabel;
     @Value("${mfn.contract-calculator.escalator}")
     private String escalator;
+    @Value("${mfn.contract-calculator.escalator.default}")
+    private int escalatorDefault;
+    @Value("${mfn.contract-calculator.escalator.max}")
+    private int escalatorMax;
+    @Value("${mfn.contract-calculator.escalator.step}")
+    private int escalatorStep;
     @Value("${mfn.contract-calculator.escalator-value}")
     private String escalatorValue;
     @Value("${mfn.contract-calculator.reset-button}")
@@ -67,6 +73,10 @@ public class ContractCalculatorConfig {
     public String escalatorLabel() { return escalatorLabel; }
     public String escalator() { return escalator; }
     public String escalatorValue() { return escalatorValue; }
+    public int escalatorDefault() { return escalatorDefault; }
+    public int escalatorMax() { return escalatorMax; }
+    public int escalatorStep() { return escalatorStep; }
+
     public String resetButton() { return resetButton; }
     public String submitButton() { return submitButton; }
 
