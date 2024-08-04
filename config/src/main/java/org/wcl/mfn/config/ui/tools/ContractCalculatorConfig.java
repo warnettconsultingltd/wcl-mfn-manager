@@ -12,13 +12,13 @@ public class ContractCalculatorConfig {
     @Value("${contract-calculator.view.attribute.suggested_contracts}")
     private String suggestedContracts;
 
-    @Value("${mfn.contract-calculator.salary-label}")
+    @Value("${mfn.contract-calculator.salary-label-id}")
     private String salaryLabel;
-    @Value("${mfn.contract-calculator.bonus-label}")
+    @Value("${mfn.contract-calculator.bonus-label-id}")
     private String bonusLabel;
-    @Value("${mfn.contract-calculator.escalator-label}")
+    @Value("${mfn.contract-calculator.escalator-label-id}")
     private String escalatorLabel;
-    @Value("${mfn.contract-calculator.escalator}")
+    @Value("${mfn.contract-calculator.escalator-id}")
     private String escalator;
     @Value("${mfn.contract-calculator.escalator.default}")
     private int escalatorDefault;
@@ -26,11 +26,11 @@ public class ContractCalculatorConfig {
     private int escalatorMax;
     @Value("${mfn.contract-calculator.escalator.step}")
     private int escalatorStep;
-    @Value("${mfn.contract-calculator.escalator-value}")
+    @Value("${mfn.contract-calculator.escalator-value-id}")
     private String escalatorValue;
-    @Value("${mfn.contract-calculator.reset-button}")
+    @Value("${mfn.contract-calculator.reset-button-id}")
     private String resetButton;
-    @Value("${mfn.contract-calculator.submit-button}")
+    @Value("${mfn.contract-calculator.submit-button-id}")
     private String submitButton;
     @Value("${mfn.contract-calculator.suggested-contracts.table}")
     private String suggestedContractsTable;
