@@ -45,9 +45,9 @@ public class HomePageUITest {
 
     @BeforeEach
     public void loadPage() {
-        driver.get(String.format(FULL_URL,port,urlConfig.homeUrl()));//homeUrl));
+        driver.get(String.format(FULL_URL,port,urlConfig.homeUrl()));
 
-        pageModel = new HomePageModel(driver, navigationBarConfig);//,htmlAttributeConfig);//, navigationBarConfig);
+        pageModel = new HomePageModel(driver, navigationBarConfig);
     }
 
     @AfterEach
