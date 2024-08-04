@@ -9,19 +9,19 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.TestPropertySource;
+import org.wcl.mfn.config.ui.common.NavigationBarConfig;
 import org.wcl.mfn.config.ui.common.PageTitleConfig;
 import org.wcl.mfn.config.url.UrlConfig;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
+import org.wcl.mfn.ui.integration.TestConfig;
 import org.wcl.mfn.ui.integration.uielements.config.*;
 import org.wcl.mfn.ui.integration.uielements.pageobjectmodel.HomePageModel;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ImportAutoConfiguration(ThymeleafAutoConfiguration.class)
-@SpringBootTest(classes= {MFNHelperApplication.class},// HtmlAttributeConfig.class},
+@SpringBootTest(classes= {TestConfig.class, UrlConfig.class, NavigationBarConfig.class, PageTitleConfig.class},// HtmlAttributeConfig.class},
                 webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource({ "classpath:application.properties"})
-@EnableConfigurationProperties
 public class HomePageUITest {
 
     private static final String FULL_URL = "http://localhost:%d%s";
@@ -31,11 +31,8 @@ public class HomePageUITest {
     @Autowired
     private UrlConfig urlConfig;
 
-//    @Autowired
-//    private NavigationBarConfig navigationBarConfig;
-
-//    @Autowired
-//    private HtmlAttributeConfig htmlAttributeConfig;
+    @Autowired
+    private NavigationBarConfig navigationBarConfig;
 
     @Autowired
     private PageTitleConfig pageTitleConfig;
@@ -50,7 +47,7 @@ public class HomePageUITest {
     public void loadPage() {
         driver.get(String.format(FULL_URL,port,urlConfig.homeUrl()));//homeUrl));
 
-        pageModel = new HomePageModel(driver);//,htmlAttributeConfig);//, navigationBarConfig);
+        pageModel = new HomePageModel(driver, navigationBarConfig);//,htmlAttributeConfig);//, navigationBarConfig);
     }
 
     @AfterEach

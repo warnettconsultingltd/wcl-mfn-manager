@@ -32,7 +32,7 @@ public class ContractControllerPageTest {
     private MockMvc mockMvc;
 
     @Test
-    public void givenServerRunning_whenContractCalculatorURLInvoked_thenHomePageRendered() throws Exception {
+    public void givenServerRunning_whenContractCalculatorURLInvoked_thenContractControllerPageToBeRendered() throws Exception {
         mockMvc.perform(get(urlConfig.contractCalculatorUrl()))
                 .andExpect(status().isOk())
                 .andExpect(view().name(viewConfig.contractCalculatorView()));
