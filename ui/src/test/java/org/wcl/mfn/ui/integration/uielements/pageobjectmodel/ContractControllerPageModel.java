@@ -3,34 +3,39 @@ package org.wcl.mfn.ui.integration.uielements.pageobjectmodel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.wcl.mfn.ui.integration.uielements.config.ContractCalculatorIDConfig;
-import org.wcl.mfn.ui.integration.uielements.config.HtmlAttributeConfig;
+import org.wcl.mfn.config.ui.common.NavigationBarConfig;
+import org.wcl.mfn.config.ui.tools.ContractCalculatorConfig;
 
 public class ContractControllerPageModel {
     private final WebDriver driver;
-    private final HtmlAttributeConfig htmlAttributeConfig;
-    private final ContractCalculatorIDConfig contractCalculatorIdConfig;
+
+    private final NavigationBarConfig navigationBarConfig;
+    private final ContractCalculatorConfig contractCalculatorConfig;
 
     public ContractControllerPageModel(WebDriver driver,
-                                       HtmlAttributeConfig htmlAttributeConfig,
-                                       ContractCalculatorIDConfig contractCalculatorIdConfig) {
+                                       NavigationBarConfig navigationBarConfig,
+                                       ContractCalculatorConfig contractCalculatorConfig) {
         this.driver = driver;
-        this.htmlAttributeConfig = htmlAttributeConfig;
-        this.contractCalculatorIdConfig = contractCalculatorIdConfig;
+        this.navigationBarConfig = navigationBarConfig;
+        this.contractCalculatorConfig = contractCalculatorConfig;
     }
 
     public WebElement navigationBar() {
-        return driver.findElements(By.id(contractCalculatorIdConfig.navbar())).getFirst();
+        return driver.findElements(By.id(navigationBarConfig.navigationBarId())).getFirst();
     }
 
     public String homeLink() {
-        return driver.findElements(By.id(contractCalculatorIdConfig.navbarHome())).getFirst()
-                .getAttribute(htmlAttributeConfig.link());
+        return driver.findElements(By.id(navigationBarConfig.navigationBarHomeId())).getFirst()
+                .getAttribute("href");
+    }
+
+    public WebElement toolsMenu() {
+        return driver.findElements(By.id(navigationBarConfig.navigationBarToolsId())).getFirst();
     }
 
     public String contractCalculatorLink() {
-        return driver.findElements(By.id(contractCalculatorIdConfig.navbarContractCalculator())).getFirst()
-                .getAttribute(htmlAttributeConfig.link());
+        return driver.findElements(By.id(navigationBarConfig.navigationBarContractCalculatorId())).getFirst()
+                .getAttribute("href");
     }
 
     public String getTitle() {
@@ -39,96 +44,94 @@ public class ContractControllerPageModel {
 
 
     public WebElement salaryLabel() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.salaryLabel()));
+        return driver.findElement(By.id(contractCalculatorConfig.salaryLabel()));
     }
 
     public WebElement bonusLabel() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.bonusLabel()));
+        return driver.findElement(By.id(contractCalculatorConfig.bonusLabel()));
     }
 
     public WebElement escalatorLabel() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.escalatorLabel()));
+        return driver.findElement(By.id(contractCalculatorConfig.escalatorLabel()));
     }
 
     public WebElement escalator() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.escalator()));
+        return driver.findElement(By.id(contractCalculatorConfig.escalator()));
     }
 
     public WebElement escalatorValue() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.escalatorValue()));
+        return driver.findElement(By.id(contractCalculatorConfig.escalatorValue()));
     }
 
     public WebElement resetButton() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.resetButton()));
+        return driver.findElement(By.id(contractCalculatorConfig.resetButton()));
     }
 
     public WebElement submitButton() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.submitButton()));
+        return driver.findElement(By.id(contractCalculatorConfig.submitButton()));
     }
 
     public WebElement suggestedContractsTable() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsTable()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsTable()));
     }
 
     public WebElement suggestedContractsMainHeader() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsMainHeader()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsMainHeader()));
     }
 
     public WebElement suggestedContractsSubHeaderYears() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderYears()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsSubHeaderYears()));
     }
 
     public WebElement suggestedContractsSubHeaderSalary() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderSalary()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsSubHeaderSalary()));
     }
 
     public WebElement suggestedContractsSubHeaderRemuneration() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderRemuneration()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsSubHeaderRemuneration()));
     }
 
     public WebElement suggestedContractsSubHeaderContractYear() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYear()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsSubHeaderContractYear()));
     }
 
     public WebElement suggestedContractsSubHeaderContractYearSalary() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYearSalary()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsSubHeaderContractYearSalary()));
     }
 
     public WebElement suggestedContractsSubHeaderContractYearlyBonus() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYearlyBonus()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsSubHeaderContractYearlyBonus()));
     }
 
     public WebElement suggestedContractsSubHeaderContractYearlyTotal() {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsSubHeaderContractYearlyTotal()));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsSubHeaderContractYearlyTotal()));
     }
 
     public WebElement contractYears(int yearIndex) {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsContractYears()+yearIndex));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsContractYears()+yearIndex));
     }
 
     public WebElement totalSalary(int yearIndex) {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsTotalSalary()+yearIndex));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsTotalSalary()+yearIndex));
     }
 
     public WebElement totalRemuneration(int yearIndex) {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsTotalRemuneration()+yearIndex));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsTotalRemuneration()+yearIndex));
     }
 
     public WebElement currentYear(int index) {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsCurrentYear()+index));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsCurrentYear()+index));
     }
 
     public WebElement yearSalary(int index) {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsYearSalary()+index));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsYearSalary()+index));
     }
 
     public WebElement bonusPerYear(int index) {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsBonusPerYear() + index));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsBonusPerYear() + index));
     }
 
     public WebElement totalPerYear(int yearIndex) {
-        return driver.findElement(By.id(contractCalculatorIdConfig.suggestedContractsTotalPerYear()+yearIndex));
+        return driver.findElement(By.id(contractCalculatorConfig.suggestedContractsTotalPerYear()+yearIndex));
     }
-
-
 }

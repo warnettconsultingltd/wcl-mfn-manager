@@ -72,8 +72,6 @@ public class ContractCalculatorController {
                                 contractCalculatorConfig.escalatorDefault(),
                         contractCalculatorConfig.escalatorMax(),
                         contractCalculatorConfig.escalatorStep()
-//                        ccc.
-
                         ),
         contractCalculatorMessagesConfig.reset(),
                 contractCalculatorMessagesConfig.submit());

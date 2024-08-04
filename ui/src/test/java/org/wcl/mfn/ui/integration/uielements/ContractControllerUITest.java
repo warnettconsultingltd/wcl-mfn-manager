@@ -8,8 +8,15 @@ import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfigurati
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
+import org.wcl.mfn.config.ui.common.NavigationBarConfig;
+import org.wcl.mfn.config.ui.common.PageTitleConfig;
+import org.wcl.mfn.config.ui.tools.ContractCalculatorConfig;
+import org.wcl.mfn.config.ui.tools.ContractCalculatorMessagesConfig;
+import org.wcl.mfn.config.url.UrlConfig;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
+import org.wcl.mfn.ui.integration.TestConfig;
 import org.wcl.mfn.ui.integration.uielements.config.*;
 import org.wcl.mfn.ui.integration.uielements.pageobjectmodel.ContractControllerPageModel;
 
@@ -19,11 +26,11 @@ import java.util.stream.IntStream;
 import static org.assertj.core.api.Assertions.*;
 
 @ImportAutoConfiguration(ThymeleafAutoConfiguration.class)
-@SpringBootTest(classes = {MFNHelperApplication.class, HtmlAttributeConfig.class},
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource({"classpath:application.properties",
-        "classpath:application-test.properties"})
-@EnableConfigurationProperties
+@SpringBootTest(classes = {TestConfig.class,UrlConfig.class,PageTitleConfig.class, ContractCalculatorConfig.class,
+NavigationBarConfig.class, ContractCalculatorConfig.class},
+                webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//@TestPropertySource({"classpath:application.properties", "classpath:view.properties", "classpath:page-title.properties"})
+//@EnableConfigurationProperties
 public class ContractControllerUITest {
 
     private static final String FULL_URL = "http://localhost:%d%s";
@@ -31,19 +38,19 @@ public class ContractControllerUITest {
     private ContractControllerPageModel pageModel;
 
     @Autowired
-    private HtmlAttributeConfig htmlAttributeConfig;
+    private UrlConfig urlConfig;
 
     @Autowired
-    private ContractCalculatorIDConfig contractCalculatorIdConfig;
+    private PageTitleConfig pageTitleConfig;
 
-    @Value("${url.home}")
-    private String homeUrl;
+    @Autowired
+    private NavigationBarConfig navBarConfig;
 
-    @Value("${url.tools.contract-calculator}")
-    private String contractCalculatorUrl;
+    @Autowired
+    private ContractCalculatorConfig contractCalculatorConfig;
 
-    @Value("${page.contract-calculator.title}")
-    private String contractCalculatorPageTitle;
+    @Autowired
+    private ContractCalculatorMessagesConfig contractCalculatorMessagesConfig;
 
     @LocalServerPort
     private int port;
@@ -53,9 +60,9 @@ public class ContractControllerUITest {
 
     @BeforeEach
     public void loadPage() {
-        driver.get(String.format(FULL_URL, port, contractCalculatorUrl));
+        driver.get(String.format(FULL_URL, port, urlConfig.contractCalculatorUrl()));
 
-        pageModel = new ContractControllerPageModel(driver, htmlAttributeConfig, contractCalculatorIdConfig);
+        pageModel = new ContractControllerPageModel(driver, navBarConfig, contractCalculatorConfig);
     }
 
     @AfterEach
@@ -72,19 +79,24 @@ public class ContractControllerUITest {
 
     @Test
     public void whenContractControllerPageIsLoaded_thenTitleIsCorrect() {
-        assertThat(pageModel.getTitle()).isEqualTo(contractCalculatorPageTitle);
+        assertThat(pageModel.getTitle()).isEqualTo(pageTitleConfig.contractCalculatorPageTitle());
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenHomeLinkIsPresent() {
         assertThat(pageModel.homeLink())
-                .isEqualTo(String.format(FULL_URL, port, homeUrl));
+                .isEqualTo(String.format(FULL_URL, port, urlConfig.homeUrl()));
+    }
+
+    @Test
+    public void whenContractControllerPageIsLoaded_thenToolsMenuIsPresent() {
+        assertThat(pageModel.toolsMenu()).isNotNull();
     }
 
     @Test
     public void whenContractControllerPageIsLoaded_thenContractCalculatorLinkIsPresent() {
         assertThat(pageModel.contractCalculatorLink())
-                .isEqualTo(String.format(FULL_URL, port, contractCalculatorUrl));
+                .isEqualTo(String.format(FULL_URL, port, urlConfig.contractCalculatorUrl()));
     }
 
     // Contract Parameters Tests

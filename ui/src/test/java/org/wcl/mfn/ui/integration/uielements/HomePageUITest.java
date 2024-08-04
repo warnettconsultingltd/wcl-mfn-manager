@@ -9,6 +9,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.TestPropertySource;
+import org.wcl.mfn.config.ui.common.PageTitleConfig;
+import org.wcl.mfn.config.url.UrlConfig;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
 import org.wcl.mfn.ui.integration.uielements.config.*;
 import org.wcl.mfn.ui.integration.uielements.pageobjectmodel.HomePageModel;
@@ -16,9 +18,9 @@ import org.wcl.mfn.ui.integration.uielements.pageobjectmodel.HomePageModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ImportAutoConfiguration(ThymeleafAutoConfiguration.class)
-@SpringBootTest(classes= {MFNHelperApplication.class, HtmlAttributeConfig.class},
+@SpringBootTest(classes= {MFNHelperApplication.class},// HtmlAttributeConfig.class},
                 webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource({"classpath:application.properties"})
+@TestPropertySource({ "classpath:application.properties"})
 @EnableConfigurationProperties
 public class HomePageUITest {
 
@@ -27,19 +29,16 @@ public class HomePageUITest {
     private HomePageModel pageModel;
 
     @Autowired
-    private HtmlAttributeConfig htmlAttributeConfig;
+    private UrlConfig urlConfig;
+
+//    @Autowired
+//    private NavigationBarConfig navigationBarConfig;
+
+//    @Autowired
+//    private HtmlAttributeConfig htmlAttributeConfig;
 
     @Autowired
-    private ElementIDConfig elementIdConfig;
-
-    @Value("${url.home}")
-    private String homeUrl;
-
-    @Value("${url.tools.contract-calculator}")
-    private String contractCalculatorUrl;
-
-    @Value("${page.home.title}")
-    private String homePageTitle;
+    private PageTitleConfig pageTitleConfig;
 
     @LocalServerPort
     private int port;
@@ -49,9 +48,9 @@ public class HomePageUITest {
 
     @BeforeEach
     public void loadPage() {
-        driver.get(String.format(FULL_URL,port,homeUrl));
+        driver.get(String.format(FULL_URL,port,urlConfig.homeUrl()));//homeUrl));
 
-        pageModel = new HomePageModel(driver, htmlAttributeConfig, elementIdConfig);
+        pageModel = new HomePageModel(driver);//,htmlAttributeConfig);//, navigationBarConfig);
     }
 
     @AfterEach
@@ -68,18 +67,18 @@ public class HomePageUITest {
 
     @Test
     public void whenHomePageIsLoaded_thenTitleIsCorrect() {
-        assertThat(pageModel.getTitle()).isEqualTo(homePageTitle);
+        assertThat(pageModel.getTitle()).isEqualTo(pageTitleConfig.homePageTitle());//homePageTitle);
     }
 
     @Test
     public void whenHomePageIsLoaded_thenHomeLinkIsPresent() {
         assertThat(pageModel.homeLink())
-                .isEqualTo(String.format(FULL_URL,port,homeUrl));
+                .isEqualTo(String.format(FULL_URL,port,urlConfig.homeUrl()));
     }
 
     @Test
     public void whenHomePageIsLoaded_thenContractCalculatorLinkIsPresent() {
         assertThat(pageModel.contractCalculatorLink())
-                .isEqualTo(String.format(FULL_URL,port,contractCalculatorUrl));
+                .isEqualTo(String.format(FULL_URL,port,urlConfig.contractCalculatorUrl()));
     }
 }
