@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.wcl.mfn.config.ui.common.PageTitleConfig;
 import org.wcl.mfn.config.ui.mvc.*;
 import org.wcl.mfn.config.ui.tools.ContractCalculatorConfig;
+import org.wcl.mfn.config.ui.tools.ContractCalculatorMessagesConfig;
 import org.wcl.mfn.config.url.UrlConfig;
 import org.wcl.mfn.ui.controller.tools.ContractCalculatorController;
 import org.wcl.mfn.ui.utilities.NavigationBarChecker;
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(ContractCalculatorController.class)
-@ContextConfiguration(classes = {ContractCalculatorController.class, ContractCalculatorConfig.class, PageTitleConfig.class, ModelConfig.class, ViewConfig.class, UrlConfig.class})
+@ContextConfiguration(classes = {ContractCalculatorController.class, ContractCalculatorConfig.class, ContractCalculatorMessagesConfig.class, PageTitleConfig.class, ModelConfig.class, ViewConfig.class, UrlConfig.class})
 public class ContractControllerPageTest {
     @Autowired
     private UrlConfig urlConfig;
