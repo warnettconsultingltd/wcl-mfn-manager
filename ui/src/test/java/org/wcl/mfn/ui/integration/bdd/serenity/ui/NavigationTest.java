@@ -13,15 +13,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.context.annotation.PropertySource;
 import org.wcl.mfn.ui.app.MFNHelperApplication;
-import org.wcl.mfn.ui.integration.uielements.config.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = {MFNHelperApplication.class, HtmlAttributeConfig.class, ElementIDConfig.class, ContractCalculatorIDConfig.class},
+@SpringBootTest(classes = {MFNHelperApplication.class},
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@PropertySource({"url.properties", "ui.properties", "view.properties"})
 @EnableConfigurationProperties
 @ExtendWith(SerenityJUnit5Extension.class)
 public class NavigationTest {
