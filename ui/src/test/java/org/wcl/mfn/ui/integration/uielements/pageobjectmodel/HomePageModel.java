@@ -1,10 +1,7 @@
 package org.wcl.mfn.ui.integration.uielements.pageobjectmodel;
 
 import org.openqa.selenium.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.wcl.mfn.config.ui.common.NavigationBarConfig;
-import org.wcl.mfn.ui.integration.uielements.config.*;
 
 public class HomePageModel {
     private final WebDriver driver;
