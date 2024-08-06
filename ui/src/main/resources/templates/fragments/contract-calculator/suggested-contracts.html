@@ -15,10 +15,10 @@
         <tr>
             <td id="mfn-cc-contracts-sub-header-years">Years</td>
             <td id="mfn-cc-contracts-sub-header-salary">Total Salary</td>
+            <td id="mfn-cc-contracts-sub-header-contract-yearly-bonus">Bonus per Year</td>
             <td id="mfn-cc-contracts-sub-header-remuneration">Total Remuneration</td>
             <td id="mfn-cc-contracts-sub-header-contract-year">Contract Year</td>
             <td id="mfn-cc-contracts-sub-header-contract-year-salary">Salary</td>
-            <td id="mfn-cc-contracts-sub-header-contract-yearly-bonus">Bonus per Year</td>
             <td id="mfn-cc-contracts-sub-header-contract-year-total">Total per Year</td>
         </tr>
         </thead>
@@ -26,6 +26,7 @@
         <tr th:each="contract : ${suggested_contracts}">
             <td th:id="${#ids.seq('mfn-cc-contracts-years')}" th:text="${contract.years}"></td>
             <td th:id="${#ids.seq('mfn-cc-contracts-total-salary')}" th:text="${contract.totalSalary}"></td>
+            <td th:id="${#ids.seq('mfn-cc-contracts-bonus-per-year')}" th:text="${contract.bonusPerYear}"></td>
             <td th:id="${#ids.seq('mfn-cc-contracts-total-remuneration')}" th:text="${contract.totalRemuneration}"></td>
             <td>
                 <table class="nested-table">
@@ -41,7 +42,6 @@
                     </tr>
                 </table>
             </td>
-            <td th:id="${#ids.seq('mfn-cc-contracts-bonus-per-year')}" th:text="${contract.bonusPerYear}"></td>
             <td>
                 <table class="nested-table">
                     <tr th:each="totalPerYear : ${contract.totalsPerYear}">
@@ -53,15 +53,6 @@
         </tbody>
     </table>
 </div>
-
-<!--<ul>-->
-<!--    <li-->
-<!--            th:each="property: ${postType.getProperties()}"-->
-<!--            th:id="${#ids.seq('property')}"-->
-<!--            th:text="${property.getDisplayName()}"-->
-<!--    ></li>-->
-<!--</ul>-->
-
 
 </body>
 </html>
