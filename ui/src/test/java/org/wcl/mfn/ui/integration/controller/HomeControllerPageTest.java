@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(HomeController.class)
 @ContextConfiguration(classes = {HomeController.class, PageTitleConfig.class, ModelConfig.class, ViewConfig.class,UrlConfig.class})
-public class HomePageTest {
+public class HomeControllerPageTest {
     @Autowired
     private UrlConfig urlConfig;
 

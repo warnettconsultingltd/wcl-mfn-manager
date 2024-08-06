@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(ContractCalculatorController.class)
 @ContextConfiguration(classes = {ContractCalculatorController.class, ContractCalculatorConfig.class, ContractCalculatorMessagesConfig.class, PageTitleConfig.class, ModelConfig.class, ViewConfig.class, UrlConfig.class})
-public class ContractControllerPageTest {
+public class ContractCalculatorControllerPageTest {
     @Autowired
     private UrlConfig urlConfig;
 

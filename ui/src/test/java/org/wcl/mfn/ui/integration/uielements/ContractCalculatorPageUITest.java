@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(classes = {TestConfig.class,UrlConfig.class,PageTitleConfig.class, ContractCalculatorConfig.class,
 NavigationBarConfig.class, ContractCalculatorConfig.class},
                 webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ContractControllerUITest {
+public class ContractCalculatorPageUITest {
 
     private static final String FULL_URL = "http://localhost:%d%s";
 
