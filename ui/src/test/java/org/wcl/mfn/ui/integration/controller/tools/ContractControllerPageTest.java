@@ -2,16 +2,12 @@ package org.wcl.mfn.ui.integration.controller.tools;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
-import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.wcl.mfn.config.ui.common.PageTitleConfig;
 import org.wcl.mfn.config.ui.mvc.*;
-import org.wcl.mfn.config.ui.tools.ContractCalculatorConfig;
-import org.wcl.mfn.config.ui.tools.ContractCalculatorMessagesConfig;
+import org.wcl.mfn.config.ui.tools.*;
 import org.wcl.mfn.config.url.UrlConfig;
 import org.wcl.mfn.ui.controller.tools.ContractCalculatorController;
 import org.wcl.mfn.ui.utilities.NavigationBarChecker;
