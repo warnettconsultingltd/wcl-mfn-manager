@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.wcl.mfn</groupId>
-        <artifactId>mfmmanager</artifactId>
+        <artifactId>mfnmanager</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -16,6 +16,7 @@
         <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+        <basedir.clone>${project.basedir}</basedir.clone>
     </properties>
 
     <dependencies>
@@ -50,6 +51,28 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>regex-property</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>amended.basedir</name>
+                            <value>${basedir.clone}</value>
+                            <regex>\\</regex>
+                            <replacement>/</replacement>
+                            <failIfNoMatch>false</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                </executions>
+
+            </plugin>
+<!--&lt;!&ndash;            &ndash;&gt;-->
+            <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
                 <version>7.7.0</version>
@@ -59,7 +82,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>src/main/resources/api/tools/ContractCalculator.yaml</inputSpec>
+                            <inputSpec>${amended.basedir}/src/main/resources/api/tools/ContractCalculator.yaml</inputSpec>
                             <generatorName>spring</generatorName>
                             <apiPackage>org.wcl.mfn.api.controller</apiPackage>
                             <modelPackage>org.wcl.mfn.api.entities</modelPackage>
