@@ -1,4 +1,4 @@
-package org.wcl.mfn.api.entities.tools;
+package org.wcl.mfn.entities.contract.calculator;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
