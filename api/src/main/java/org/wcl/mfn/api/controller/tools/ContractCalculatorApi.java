@@ -12,22 +12,17 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.*;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.NativeWebRequest;
 
 import jakarta.validation.Valid;
 
 import java.util.*;
 import jakarta.annotation.Generated;
-import org.wcl.mfn.api.entities.tools.*;
+import org.wcl.mfn.entities.contract.calculator.*;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-08-12T17:13:21.317528200+01:00[Europe/London]", comments = "Generator version: 7.7.0")
 @Validated
 @Tag(name = "contract-calculator", description = "the contract-calculator API")
 public interface ContractCalculatorApi {
-
-    default Optional<NativeWebRequest> getRequest() {
-        return Optional.empty();
-    }
 
     /**
      * POST /contract-calculator : Returns a list of suggested contract values based upon a provided salary and bonus value.
@@ -61,8 +56,9 @@ public interface ContractCalculatorApi {
         consumes = { "application/json" }
     )
     default ResponseEntity<List<SuggestedContract>> contractCalculatorPost(
-        @Parameter(name = "RequestedRemuneration", description = "The requested salary and bonus for the suggested contracts", required = true) @Valid @RequestBody RequestedRemuneration requestedRemuneration
-    ) {
+        @Parameter(name = "RequestedRemuneration",
+                   description = "The requested salary and bonus for the suggested contracts",
+                    required = true) @Valid @RequestBody RequestedRemuneration requestedRemuneration) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 
