@@ -9,7 +9,6 @@ data class SuggestedContract(
     val totalSalary: Int,
     val bonusPerYear: Int,
     val totalRemuneration: Int,
-    val yearlyFigures: @Size(min = 2, max = 6)
-    @Valid List<YearlyFigure>?
+    val yearlyFigures: @Size(min = 2, max = 6) @Valid List<YearlyFigure>
 )
 
