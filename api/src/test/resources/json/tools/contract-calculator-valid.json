@@ -1,0 +1,143 @@
+[
+  {
+    "years" : 2,
+    "totalSalary" :55467514,
+    "bonusPerYear":36076432,
+    "totalRemuneration":127620378,
+    "yearlyFigures" : [
+      {
+        "year" : 1,
+        "salary" : 27057324,
+        "yearlyRemuneration": 63133756
+      },
+      {
+        "year" : 2,
+        "salary" : 28410190,
+        "yearlyRemuneration": 64486622
+      }
+    ]
+  },
+  {
+    "years" : 3,
+    "totalSalary" :56865476,
+    "bonusPerYear":24050955,
+    "totalRemuneration":129018341,
+    "yearlyFigures" : [
+      {
+        "year" : 1,
+        "salary" : 18038216,
+        "yearlyRemuneration": 42089171
+      },
+      {
+        "year" : 2,
+        "salary" : 18940127,
+        "yearlyRemuneration": 42991082
+      },
+      {
+        "year": 3,
+        "salary": 19887133,
+        "yearlyRemuneration": 43938088
+      }
+    ]
+  },
+  {
+    "years" : 4,
+    "totalSalary" : 58310225,
+    "bonusPerYear":18038216,
+    "totalRemuneration":130463089,
+    "yearlyFigures" : [
+      {
+        "year" : 1,
+        "salary" : 13528662,
+        "yearlyRemuneration": 31566878
+      },
+      {
+        "year" : 2,
+        "salary" : 14205095,
+        "yearlyRemuneration": 32243311
+      },
+      {
+        "year" : 3,
+        "salary" : 14915350,
+        "yearlyRemuneration": 32953566
+      },
+      {
+        "year" : 4,
+        "salary" : 15661118,
+        "yearlyRemuneration": 33699334
+      }
+    ]
+  },
+  {
+    "years" : 5,
+    "totalSalary" :59803523,
+    "bonusPerYear":14430573,
+    "totalRemuneration":131956388,
+    "yearlyFigures" : [
+      {
+        "year" : 1,
+        "salary" : 10822930,
+        "yearlyRemuneration": 25253503
+      },
+      {
+        "year" : 2,
+        "salary" : 11364077,
+        "yearlyRemuneration": 25794650
+      },
+      {
+        "year" : 3,
+        "salary" : 11932281 ,
+        "yearlyRemuneration": 26362854
+      },
+      {
+        "year" : 4,
+        "salary" : 12528895,
+        "yearlyRemuneration": 26959468
+      },
+      {
+        "year" : 5,
+        "salary" : 13155340,
+        "yearlyRemuneration": 27585913
+      }
+
+    ]
+  },
+  {
+    "years" : 6,
+    "totalSalary" :61347182,
+    "bonusPerYear":12025477,
+    "totalRemuneration":133500044,
+    "yearlyFigures" : [
+      {
+        "year" : 1,
+        "salary" : 9019108,
+        "yearlyRemuneration": 21044585
+      },
+      {
+        "year" : 2,
+        "salary" : 9470063,
+        "yearlyRemuneration": 21495540
+      },
+      {
+        "year" : 3,
+        "salary" : 9943566,
+        "yearlyRemuneration": 21969043
+      },
+      {
+        "year" : 4,
+        "salary" : 10440744,
+        "yearlyRemuneration": 22466221
+      },
+      {
+        "year" : 5,
+        "salary" : 10962781,
+        "yearlyRemuneration": 22988258
+      },
+      {
+        "year" : 6,
+        "salary" : 11510920,
+        "yearlyRemuneration": 23536397
+      }
+    ]
+  }
+]
