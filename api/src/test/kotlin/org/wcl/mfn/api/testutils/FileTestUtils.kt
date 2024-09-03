@@ -1,40 +1,34 @@
-package org.wcl.mfn.api.testutils;
+package org.wcl.mfn.api.testutils
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.path.json.JsonPath;
-import org.apache.commons.io.FileUtils;
-import org.wcl.mfn.entities.contract.calculator.SuggestedContract;
+import com.fasterxml.jackson.databind.ObjectMapper
+import io.restassured.path.json.JsonPath
+import org.apache.commons.io.FileUtils
+import java.io.*
+import java.util.*
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+object FileTestUtils {
+    private val CLASSLOADER: ClassLoader = FileTestUtils::class.java.classLoader
 
-public class FileTestUtils {
-    private static final ClassLoader CLASSLOADER = FileTestUtils.class.getClassLoader();
-
-    private FileTestUtils() {}
-
-    public static File testResourceFile(final String path) {
-        return new File(Objects.requireNonNull(CLASSLOADER.getResource(path)).getFile());
+    fun testResourceFile(path: String?): File {
+        return File(Objects.requireNonNull(CLASSLOADER.getResource(path)).file)
     }
 
-    public static JsonPath testResourceFileAsJson(final String path) {
-        return new JsonPath(testResourceFile(path));
+    fun testResourceFileAsJson(path: String?): JsonPath {
+        return JsonPath(testResourceFile(path))
     }
 
-    public static <E> Collection<E> testResourceFileAsDeserialisedCollection(final String path, final Class<E> clazz) {
-        final var file = testResourceFile(path);
+    fun <E> testResourceFileAsDeserialisedCollection(path: String?, clazz: Class<E>?): Collection<E> {
+        val file = testResourceFile(path)
         try {
-            final String data = FileUtils.readFileToString(file, "UTF-8");
-            final var mapper = new ObjectMapper();
+            val data = FileUtils.readFileToString(file, "UTF-8")
+            val mapper = ObjectMapper()
 
-            return mapper.readValue(data,
-                                    mapper.getTypeFactory().constructCollectionLikeType(Collection.class,clazz));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            return mapper.readValue(
+                data,
+                mapper.typeFactory.constructCollectionLikeType(MutableCollection::class.java, clazz)
+            )
+        } catch (e: IOException) {
+            throw RuntimeException(e)
         }
     }
 }

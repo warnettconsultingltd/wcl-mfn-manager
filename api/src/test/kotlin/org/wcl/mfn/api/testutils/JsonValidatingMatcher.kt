@@ -1,16 +1,10 @@
-package org.wcl.mfn.api.testutils;
+package org.wcl.mfn.api.testutils
 
-import io.restassured.path.json.JsonPath;
-import org.hamcrest.Matcher;
+import io.restassured.path.json.JsonPath
+import org.hamcrest.*
 
-import java.util.Collection;
-
-import static org.hamcrest.Matchers.equalTo;
-
-public class JsonValidatingMatcher {
-    private JsonValidatingMatcher() {}
-
-    public static <T> Matcher<Collection<T>> matchFullJsonCollection(final JsonPath expectedResponseJson) {
-        return equalTo(expectedResponseJson.getList(""));
+object JsonValidatingMatcher {
+    fun <T> matchFullJsonCollection(expectedResponseJson: JsonPath): Matcher<Collection<T>> {
+        return Matchers.equalTo(expectedResponseJson.getList(""))
     }
 }

@@ -1,63 +1,67 @@
-package org.wcl.mfn.api.controller.tools;
+package org.wcl.mfn.api.controller.tools
 
-import io.restassured.http.ContentType;
-import jakarta.annotation.PostConstruct;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.http.HttpStatus;
-import org.wcl.mfn.api.testutils.*;
-import org.wcl.mfn.entities.contract.calculator.*;
-import org.wcl.mfn.service.tools.ContractCalculatorService;
+import io.restassured.RestAssured
+import io.restassured.http.ContentType
+import jakarta.annotation.PostConstruct
+import org.junit.jupiter.api.Test
+import org.mockito.Mockito.*
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
+import org.springframework.boot.context.properties.EnableConfigurationProperties
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.mock.mockito.MockBean
+import org.springframework.boot.test.web.server.LocalServerPort
+import org.springframework.http.HttpStatus
+import org.wcl.mfn.api.testutils.*
+import org.wcl.mfn.entities.contract.calculator.*
+import org.wcl.mfn.service.tools.ContractCalculatorService
+import java.io.IOException
 
-import java.io.IOException;
-import java.util.List;
-
-import static io.restassured.RestAssured.with;
-
-@SpringBootTest(classes= {ContractCalculatorController.class},
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(
+    classes = [ContractCalculatorController::class],
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+)
 @EnableConfigurationProperties
 @EnableAutoConfiguration
-public class ContractCalculatorControllerTest {
-
-    private static final String VALID_JSON_FILE = "json/tools/contract-calculator-valid.json";
-
+class ContractCalculatorControllerTest {
     @LocalServerPort
-    private int port;
+    private val port = 0
 
-    private String uri;
+    private var uri: String? = null
 
     @PostConstruct
-    public void init() {
-        uri = URIFactory.testURI(port,"/contract-calculator");
+    fun init() {
+        uri = URIFactory.testURI(port, CONTRACT_CALCULATOR_ENDPOINT)
     }
 
     @MockBean
-    ContractCalculatorService contractCalculatorService;
+    var contractCalculatorService: ContractCalculatorService? = null
 
     @Test
-    public void  givenValidRequestedRemuneration_whenRequestingSuggestedContracts_thenCalculatedSuggestedContractsReturned() throws IOException {
-        final var expectedResponseJson = FileTestUtils.testResourceFileAsJson(VALID_JSON_FILE);
+    @Throws(IOException::class)
+    fun givenValidRequestedRemuneration_whenRequestingSuggestedContracts_thenCalculatedSuggestedContractsReturned() {
+        val expectedResponseJson = FileTestUtils.testResourceFileAsJson(VALID_JSON_FILE)
 
-        final var expectedData =(List<SuggestedContract>) JsonTestUtils.deserializeJson(expectedResponseJson,
-                SuggestedContract.class);
+        val expectedData = JsonTestUtils.deserializeJson(
+            expectedResponseJson,
+            SuggestedContract::class.java
+        ) as List<SuggestedContract>
 
-        Mockito.when(contractCalculatorService.suggestedContracts(695018,72152864))
-                .thenReturn(expectedData);
+        `when`(contractCalculatorService!!.suggestedContracts(695018, 72152864))
+            .thenReturn(expectedData)
 
-        with()
-                .contentType(ContentType.JSON)
-                .body(new RequestedRemuneration(695018, 72152864))
-            .when()
-                .request("POST",  uri)
+        RestAssured.with()
+            .contentType(ContentType.JSON)
+            .body(RequestedRemuneration(695018, 72152864))
+            .`when`()
+            .request("POST", uri)
             .then()
-                .statusCode(HttpStatus.OK.value())
+            .statusCode(HttpStatus.OK.value())
             .and()
-                .body("", JsonValidatingMatcher.matchFullJsonCollection(expectedResponseJson));
+            .body("", JsonValidatingMatcher.matchFullJsonCollection<Any>(expectedResponseJson))
+    }
+
+    companion object {
+        private const val VALID_JSON_FILE = "json/tools/contract-calculator-valid.json"
+        private const val CONTRACT_CALCULATOR_ENDPOINT = "/contract-calculator"
     }
 }
