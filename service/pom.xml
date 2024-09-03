@@ -16,6 +16,7 @@
         <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+        <kotlin.version>2.0.20</kotlin.version>
     </properties>
 
     <dependencies>
@@ -42,6 +43,11 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit5</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>uy.kohesive.klutter</groupId>
+            <artifactId>klutter-core</artifactId>
+            <version>3.0.0</version>
         </dependency>
     </dependencies>
 
