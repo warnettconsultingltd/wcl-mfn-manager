@@ -8,7 +8,7 @@ import org.wcl.mfn.exceptions.validation.InvalidParameterException
 import kotlin.test.assertFailsWith
 
 class ContractCalculatorServiceTest {
-    private val service: ContractCalculatorService = ContractCalculatorService();
+    private val service: ContractCalculatorService = ContractCalculatorService()
 
     @Test
     fun whenNegativeSalaryProvided_thenThrowException() {
@@ -53,7 +53,7 @@ class ContractCalculatorServiceTest {
         assertThat(suggestedContracts, notNullValue())
         assertThat(suggestedContracts.size, equalTo(5))
 
-        val expectedContracts = generateExpectedSuggestedContracts();
+        val expectedContracts = generateExpectedSuggestedContracts()
         assertThat(suggestedContracts, equalTo(expectedContracts))
     }
 
