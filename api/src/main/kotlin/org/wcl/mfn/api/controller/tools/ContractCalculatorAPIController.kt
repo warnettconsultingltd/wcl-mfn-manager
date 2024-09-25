@@ -8,7 +8,7 @@ import org.wcl.mfn.entities.contract.calculator.*
 import org.wcl.mfn.service.tools.ContractCalculatorService
 
 @RestController
-class ContractCalculatorController internal constructor(@param:Autowired private val service: ContractCalculatorService) {
+class ContractCalculatorAPIController internal constructor(@param:Autowired private val service: ContractCalculatorService) {
     @RequestMapping(
         method = [RequestMethod.POST],
         value = ["/contract-calculator"],

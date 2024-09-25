@@ -17,12 +17,12 @@ import org.wcl.mfn.service.tools.ContractCalculatorService
 import java.io.IOException
 
 @SpringBootTest(
-    classes = [ContractCalculatorController::class],
+    classes = [ContractCalculatorAPIController::class],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 @EnableConfigurationProperties
 @EnableAutoConfiguration
-class ContractCalculatorControllerTest {
+class ContractCalculatorAPIControllerTest {
     @LocalServerPort
     private val port = 0
 
