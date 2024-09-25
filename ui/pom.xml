@@ -22,6 +22,11 @@
     <dependencies>
         <dependency>
             <groupId>org.wcl.mfn</groupId>
+            <artifactId>api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wcl.mfn</groupId>
             <artifactId>config</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
