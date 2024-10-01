@@ -62,6 +62,6 @@ class ContractCalculatorAPIControllerTest {
 
     companion object {
         private const val VALID_JSON_FILE = "json/tools/contract-calculator-valid.json"
-        private const val CONTRACT_CALCULATOR_ENDPOINT = "/contract-calculator"
+        private const val CONTRACT_CALCULATOR_ENDPOINT = "/api/contract-calculator"
     }
 }

@@ -100,7 +100,7 @@ class ContractCalculatorPageUITest {
     @Test
     fun whenContractControllerPageIsLoaded_thenBonusLabelIsPresent() {
         Assertions.assertThat(pageModel!!.bonusLabel().text)
-            .isEqualTo("Bonus Required")
+            .isEqualTo("Bonus Requested")
     }
 
     @Test

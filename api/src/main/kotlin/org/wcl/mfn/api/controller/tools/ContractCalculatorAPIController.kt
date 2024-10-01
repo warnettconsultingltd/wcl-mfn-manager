@@ -11,7 +11,7 @@ import org.wcl.mfn.service.tools.ContractCalculatorService
 class ContractCalculatorAPIController internal constructor(@param:Autowired private val service: ContractCalculatorService) {
     @RequestMapping(
         method = [RequestMethod.POST],
-        value = ["/contract-calculator"],
+        value = ["/api/contract-calculator"],
         produces = ["application/json"],
         consumes = ["application/json"]
     )

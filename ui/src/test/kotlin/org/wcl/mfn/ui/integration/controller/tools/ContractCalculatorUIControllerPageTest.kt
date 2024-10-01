@@ -11,12 +11,12 @@ import org.wcl.mfn.config.ui.common.PageTitleConfig
 import org.wcl.mfn.config.ui.mvc.*
 import org.wcl.mfn.config.ui.tools.*
 import org.wcl.mfn.config.url.UrlConfig
-import org.wcl.mfn.ui.controller.tools.ContractCalculatorController
+import org.wcl.mfn.ui.controller.tools.ContractCalculatorUIController
 import org.wcl.mfn.ui.utilities.NavigationBarChecker
 
-@WebMvcTest(ContractCalculatorController::class)
-@ContextConfiguration(classes = [ContractCalculatorController::class, ContractCalculatorConfig::class, ContractCalculatorMessagesConfig::class, PageTitleConfig::class, ModelConfig::class, ViewConfig::class, UrlConfig::class])
-class ContractCalculatorControllerPageTest {
+@WebMvcTest(ContractCalculatorUIController::class)
+@ContextConfiguration(classes = [ContractCalculatorUIController::class, ContractCalculatorConfig::class, ContractCalculatorMessagesConfig::class, PageTitleConfig::class, ModelConfig::class, ViewConfig::class, UrlConfig::class])
+class ContractCalculatorUIControllerPageTest {
     @Autowired
     private val urlConfig: UrlConfig? = null
 

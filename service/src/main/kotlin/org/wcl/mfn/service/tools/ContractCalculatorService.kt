@@ -45,17 +45,17 @@ class ContractCalculatorService {
         }
     }
 
-    private fun generateYearlyFigures(numberOfYears: Int, startingSalary: Int, bonusPerYear: Int): List<YearlyFigure> {
+    private fun generateYearlyFigures(numberOfYears: Int, startingSalary: Int, bonusPerYear: Int): List<SuggestedYearlyContract> {
         return IntRange(1, numberOfYears).toList().stream()
             .map { n -> generateYearlyFigure(n, startingSalary, bonusPerYear) }.toList()
     }
 
-    private fun generateYearlyFigure(year: Int, startingSalary: Int, bonusPerYear: Int): YearlyFigure {
+    private fun generateYearlyFigure(year: Int, startingSalary: Int, bonusPerYear: Int): SuggestedYearlyContract {
         val salary: Int = if (year == 1) {
             startingSalary
         } else {
             ceil(startingSalary.toDouble() * (1.05.pow(year - 1))).toInt()
         }
-        return YearlyFigure(year, salary, salary + bonusPerYear)
+        return SuggestedYearlyContract(year, salary, salary + bonusPerYear)
     }
 }

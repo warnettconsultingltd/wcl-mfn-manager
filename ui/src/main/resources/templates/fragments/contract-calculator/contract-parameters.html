@@ -7,24 +7,23 @@
 </head>
 <body>
 
-
-<div th:fragment="contract-parameters-form(contract_parameters, contract_parameter_elements)">
-    <form th:object="${contract_parameters}">
+<div th:fragment="contract-parameters-form(requested_remuneration)">
+    <form th:object="${requested_remuneration}" th:action="@{/contract-calculator/submit}" method="post">
         <div class="contract-parameters-grid mfn-text">
-            <label id="mfn-cc-salary-label" for="minSalaryAndBonus" th:text="${contract_parameter_elements.minSalary}"></label>
-            <input id="minSalaryAndBonus" type="number" th:field="${contract_parameters.salary}"/>
-            <label id="mfn-cc-bonus-label" for="bonusRequired" th:text="${contract_parameter_elements.bonus}">Bonus Required</label>
-            <input id="bonusRequired" type="number" th:field="${contract_parameters.bonus}"/>
+            <label id="mfn-cc-salary-label" for="minSalaryAndBonus">Minimum Salary</label>
+            <input id="minSalaryAndBonus" type="number" th:field="*{salary}"/>
+            <label id="mfn-cc-bonus-label" for="bonusRequired">Bonus Requested</label>
+            <input id="bonusRequired" type="number" th:field="*{bonus}"/>
 
-            <label id="mfn-cc-escalator-label" for="mfn-cc-escalator"  th:text="${contract_parameter_elements.escalator.label}"></label>
-            <input type="range" name="escalator" id="mfn-cc-escalator" value="${contract_parameter_elements.escalator.defaultValue}"
-                   min="${contract_parameter_elements.escalator.defaultValue}" max="${contract_parameter_elements.escalator.max}"
-                   step="${contract_parameter_elements.escalator.step}"
-                   oninput="mfn-cc-escalator-value.value = mfn-cc-escalator.value" th:field="${contract_parameters.escalator}">
-            <output id="mfn-cc-escalator-value" th:text="${contract_parameter_elements.escalator.defaultValue}"></output>
+            <label id="mfn-cc-escalator-label" for="mfn-cc-escalator">Escalator %</label>
+            <input type="range" name="escalator" id="mfn-cc-escalator" value="*{escalator.value}"
+                   min="*{escalator.minValue}" max="*{escalator.maxValue}"
+                   step="*{escalator.step}"
+                   oninput="mfn-cc-escalator-value.value = mfn-cc-escalator.value" th:field="*{escalator.value}">
+            <output id="mfn-cc-escalator-value" th:text="*{escalator.value}"></output>
 
-            <input class="contract-parameters-button" id="mfn-cc-reset" type="reset" value="Reset"  th:text="${contract_parameter_elements.reset}"/>
-            <input class="contract-parameters-button" id="mfn-cc-submit" type="submit" value="Submit"  th:text="${contract_parameter_elements.submit}"/>
+            <input class="contract-parameters-button" id="mfn-cc-reset" type="reset" value="Reset"  th:text="Reset"/>
+            <input class="contract-parameters-button" id="mfn-cc-submit" type="submit" value="Submit"  th:text="Submit"/>
         </div>
     </form>
 </div>

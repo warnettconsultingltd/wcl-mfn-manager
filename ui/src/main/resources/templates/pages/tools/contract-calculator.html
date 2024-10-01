@@ -14,7 +14,7 @@
   </head>
   <body>
     <div th:insert="~{fragments/common/mfn-navigation-bar :: mfn-navbar}"></div>
-    <div th:insert="~{fragments/contract-calculator/contract-parameters :: contract-parameters-form(${contract_parameters}, ${contract_parameter_elements})}"></div>
-    <div th:insert="~{fragments/contract-calculator/suggested-contracts :: suggested-contracts-table}"></div>
+    <div th:insert="~{fragments/contract-calculator/contract-parameters :: contract-parameters-form(${requested_remuneration})}"></div>
+    <div th:insert="~{fragments/contract-calculator/suggested-contracts :: suggested-contracts-table(${suggested_contracts})}"></div>
   </body>
 </html>
