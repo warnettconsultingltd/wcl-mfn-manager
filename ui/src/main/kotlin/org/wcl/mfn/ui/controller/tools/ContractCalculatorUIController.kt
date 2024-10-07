@@ -49,9 +49,7 @@ class ContractCalculatorUIController {
 
     @GetMapping("/contract-calculator")
     fun contractCalculatorPage(model: Model): String {
-        model.addAttribute("page_title",pageTitleConfig!!.contractCalculatorPageTitle())
-        model.addAttribute("requested_remuneration", requestedRemuneration)
-        model.addAttribute("suggested_contracts", generateBlankContracts())
+        setModelAttributes(model, generateBlankContracts())
 
         return "pages/tools/contract-calculator"
     }
@@ -60,11 +58,22 @@ class ContractCalculatorUIController {
     fun updateSuggestedContracts(@ModelAttribute("requested_remuneration") contractDemands:RequestedRemunerationForm, model:Model): String? {
         requestedRemuneration = contractDemands;
 
-        model.addAttribute("page_title",pageTitleConfig!!.contractCalculatorPageTitle())
-        model.addAttribute("requested_remuneration", requestedRemuneration)
-        model.addAttribute("suggested_contracts", getSuggestedContracts())
+        setModelAttributes(model, getSuggestedContracts())
 
         return "pages/tools/contract-calculator"
+    }
+
+    @GetMapping("/contract-calculator/reset")
+    fun resetCalculatorPage(model: Model): String {
+        setModelAttributes(model, generateBlankContracts())
+
+        return "redirect:pages/tools/contract-calculator"
+    }
+
+    private fun setModelAttributes(model: Model, suggestedContracts: List<SuggestedContract>) {
+        model.addAttribute("page_title", pageTitleConfig!!.contractCalculatorPageTitle())
+        model.addAttribute("requested_remuneration", requestedRemuneration)
+        model.addAttribute("suggested_contracts", suggestedContracts)
     }
 
     private fun getSuggestedContracts() : List<SuggestedContract> {
