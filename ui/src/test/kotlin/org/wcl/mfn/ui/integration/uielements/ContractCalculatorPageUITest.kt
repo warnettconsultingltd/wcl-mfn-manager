@@ -202,9 +202,13 @@ class ContractCalculatorPageUITest {
     fun whenContractControllerPageIsLoaded_thenSuggestedContractsContractCurrentYearsArePresent() {
         val contractYearsValues = listOf(1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6)
         IntStream.rangeClosed(1, 20).forEach { i: Int ->
-            Assertions.assertThat(
-                pageModel!!.currentYear(i).text
-            ).isEqualTo(contractYearsValues[i - 1].toString())
+            run {
+                System.out.println("i = " + i + " curr year = " +  pageModel!!.currentYear(i).text + " expected = " + contractYearsValues[i-1].toString())
+                Assertions.assertThat(
+                    pageModel!!.currentYear(i).text
+                ).isEqualTo(contractYearsValues[i-1].toString())
+
+            }
         }
     }
 

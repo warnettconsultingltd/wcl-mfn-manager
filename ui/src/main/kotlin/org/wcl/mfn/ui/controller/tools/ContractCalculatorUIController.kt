@@ -98,38 +98,38 @@ class ContractCalculatorUIController {
     private fun generateBlankContracts(): List<SuggestedContract> {
         return listOf(SuggestedContract(
             2,0,0,0,
-            listOf(SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0))
+            listOf(SuggestedYearlyContract(1,0,0),
+                    SuggestedYearlyContract(2,0,0))
             ),
             SuggestedContract(
                 3,0,0,0,
-                listOf(SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0))
+                listOf(SuggestedYearlyContract(1,0,0),
+                    SuggestedYearlyContract(2,0,0),
+                    SuggestedYearlyContract(3,0,0))
             ),
             SuggestedContract(
                 4,0,0,0,
-                listOf(SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0))
+                listOf(SuggestedYearlyContract(1,0,0),
+                    SuggestedYearlyContract(2,0,0),
+                    SuggestedYearlyContract(3,0,0),
+                    SuggestedYearlyContract(4,0,0))
             ),
             SuggestedContract(
                 5,0,0,0,
-                listOf(SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0))
+                listOf(SuggestedYearlyContract(1,0,0),
+                    SuggestedYearlyContract(2,0,0),
+                    SuggestedYearlyContract(3,0,0),
+                    SuggestedYearlyContract(4,0,0),
+                    SuggestedYearlyContract(5,0,0))
             ),
             SuggestedContract(
                 6,0,0,0,
-                listOf(SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0),
-                    SuggestedYearlyContract(0,0,0))
+                listOf(SuggestedYearlyContract(1,0,0),
+                    SuggestedYearlyContract(2,0,0),
+                    SuggestedYearlyContract(3,0,0),
+                    SuggestedYearlyContract(4,0,0),
+                    SuggestedYearlyContract(5,0,0),
+                    SuggestedYearlyContract(6,0,0))
             )
         )
     }
