@@ -13,11 +13,12 @@ import org.wcl.mfn.config.ui.tools.*
 import org.wcl.mfn.config.url.UrlConfig
 import org.wcl.mfn.ui.integration.TestConfig
 import org.wcl.mfn.ui.integration.uielements.pageobjectmodel.ContractControllerPageModel
+import org.wcl.mfn.ui.utilities.TestApplication
 import java.util.stream.IntStream
 
 @ImportAutoConfiguration(ThymeleafAutoConfiguration::class)
 @SpringBootTest(
-    classes = [TestConfig::class, UrlConfig::class, PageTitleConfig::class, ContractCalculatorConfig::class, NavigationBarConfig::class, ContractCalculatorConfig::class],
+    classes = [TestApplication::class, TestConfig::class, UrlConfig::class, PageTitleConfig::class, ContractCalculatorConfig::class, NavigationBarConfig::class, ContractCalculatorConfig::class],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 class ContractCalculatorPageUITest {
@@ -203,7 +204,6 @@ class ContractCalculatorPageUITest {
         val contractYearsValues = listOf(1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6)
         IntStream.rangeClosed(1, 20).forEach { i: Int ->
             run {
-                System.out.println("i = " + i + " curr year = " +  pageModel!!.currentYear(i).text + " expected = " + contractYearsValues[i-1].toString())
                 Assertions.assertThat(
                     pageModel!!.currentYear(i).text
                 ).isEqualTo(contractYearsValues[i-1].toString())
