@@ -26,23 +26,21 @@
     </dependencies>
 
     <build>
+        <finalName>MFNHelperApplication</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <phase>package</phase>
                         <goals>
-                            <goal>shade</goal>
+                            <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.wcl.mfn.ui.MFNHelperApplication</mainClass>
-                                </transformer>
-                            </transformers>
+                            <classifier>spring-boot</classifier>
+                            <mainClass>
+                                org.wcl.mfn.MFNHelperApplication
+                            </mainClass>
                         </configuration>
                     </execution>
                 </executions>
