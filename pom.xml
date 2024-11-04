@@ -21,6 +21,7 @@
 		<module>service</module>
 		<module>entities</module>
 		<module>exceptions</module>
+		<module>app</module>
 	</modules>
     <properties>
 		<java.version>22</java.version>
@@ -47,6 +48,19 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<classifier>spring-boot</classifier>
+							<mainClass>
+								com.wcl.mfn.ui.org.wcl.mfn.MFNHelperApplication
+							</mainClass>
+						</configuration>
+					</execution>
+				</executions>
 				<configuration>
 					<excludes>
 						<exclude>
@@ -58,5 +72,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
