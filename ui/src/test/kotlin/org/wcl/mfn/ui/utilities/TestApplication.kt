@@ -1,4 +1,4 @@
-package org.wcl.mfn.ui.app
+package org.wcl.mfn.ui.utilities
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.web.servlet.config.annotation.EnableWebMvc
@@ -6,7 +6,7 @@ import org.springframework.boot.runApplication
 
 @SpringBootApplication(scanBasePackages = ["org.wcl.mfn"])
 @EnableWebMvc
-open class MFNHelperApplication
+open class TestApplication
     fun main(args: Array<String>) {
-        runApplication<MFNHelperApplication>(*args)
+        runApplication<TestApplication>(*args)
     }

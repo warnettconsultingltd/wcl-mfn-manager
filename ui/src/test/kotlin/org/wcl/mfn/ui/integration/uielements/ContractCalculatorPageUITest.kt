@@ -13,12 +13,11 @@ import org.wcl.mfn.config.ui.tools.*
 import org.wcl.mfn.config.url.UrlConfig
 import org.wcl.mfn.ui.integration.TestConfig
 import org.wcl.mfn.ui.integration.uielements.pageobjectmodel.ContractControllerPageModel
-import org.wcl.mfn.ui.utilities.TestApplication
 import java.util.stream.IntStream
 
 @ImportAutoConfiguration(ThymeleafAutoConfiguration::class)
 @SpringBootTest(
-    classes = [TestApplication::class, TestConfig::class, UrlConfig::class, PageTitleConfig::class, ContractCalculatorConfig::class, NavigationBarConfig::class, ContractCalculatorConfig::class],
+    classes = [TestConfig::class, UrlConfig::class, PageTitleConfig::class, ContractCalculatorConfig::class, NavigationBarConfig::class, ContractCalculatorConfig::class],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 class ContractCalculatorPageUITest {
@@ -35,9 +34,6 @@ class ContractCalculatorPageUITest {
 
     @Autowired
     private val contractCalculatorConfig: ContractCalculatorConfig? = null
-
-    @Autowired
-    private val contractCalculatorMessagesConfig: ContractCalculatorMessagesConfig? = null
 
     @LocalServerPort
     private val port = 0
