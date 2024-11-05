@@ -46,19 +46,12 @@ jobs:
           echo "Files"
           find . -type f -name "*.xml"
 
-      #download Codecov CLI
-#      - run:
-#          curl -Os https://cli.codecov.io/latest/linux/codecov
-#          sudo chmod +x codecov
-#          ./codecov --verbose upload-process --disable-search --fail-on-error -t ${{ secrets.CODECOV_TOKEN }} -n 'service'-${{ github.run_id }} -F service -f jacoco.xml
       - store_test_results:
           path: /home/circleci/project/code-coverage-aggregation/target/site/jacoco-aggregate
 
       - run:
           name: Send to CodeCov
           command: bash <(curl -s https://codecov.io/bash)
-#      - codecov/upload:
-#          file: /home/circleci/project/code-coverage-aggregation/target/site/jacoco-aggregate/jacoco.xml
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
