@@ -15,6 +15,7 @@ jobs:
       # Specify the version you desire here
       # See: https://circleci.com/developer/images/image/cimg/openjdk
       - image: cimg/openjdk:23.0.1-browsers
+    resource_class: small
 
     # Add steps to the job
     # See: https://circleci.com/docs/jobs-steps/#steps-overview & https://circleci.com/docs/configuration-reference/#steps
@@ -41,7 +42,8 @@ jobs:
           name: Test
           command: mvn test
 
-      - codecov/upload
+      - codecov/upload:
+          file: /home/circleci/project/code-coverage-aggregation/target/site/jacoco-aggregate/jacoco.xml
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
