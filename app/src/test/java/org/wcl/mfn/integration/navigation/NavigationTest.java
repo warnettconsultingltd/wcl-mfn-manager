@@ -65,7 +65,6 @@ public class NavigationTest {
         assertThat(driver.getTitle()).isEqualTo(homePageTitle);
         assertThat(driver.getCurrentUrl()).isEqualTo(String.format(BASE_URL, port, homePageUrl));
     }
-        
     
     @Test
     @DisplayName("Navigate from home page to Contract Calculator page")
@@ -77,5 +76,19 @@ public class NavigationTest {
 
         assertThat(driver.getTitle()).isEqualTo(contractCalculatorTitle);
         assertThat(driver.getCurrentUrl()).isEqualTo(String.format(BASE_URL, port, contractCalculatorUrl));
+    }
+
+
+    @Test
+    @DisplayName("Navigate to home page from Contract Calculator page")
+    public void  navigateFromContractCalculatorPageToHomePage() {
+        dylan.attemptsTo(
+                Open.url(String.format(BASE_URL, port, homePageUrl)),
+                Click.on(By.id(toolsId)),
+                Click.on(By.id(contractCalculatorId)),
+                Click.on(By.id(homeId)));
+
+        assertThat(driver.getTitle()).isEqualTo(homePageTitle);
+        assertThat(driver.getCurrentUrl()).isEqualTo(String.format(BASE_URL, port, homePageUrl));
     }
 }
