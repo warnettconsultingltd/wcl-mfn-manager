@@ -1,4 +1,4 @@
-package org.wcl.mfn.integration;
+package org.wcl.mfn.integration.navigation;
 
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.screenplay.Actor;
