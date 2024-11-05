@@ -22,6 +22,7 @@
 		<module>entities</module>
 		<module>exceptions</module>
 		<module>app</module>
+		<module>code-coverage-aggregation</module>
 	</modules>
     <properties>
 		<java.version>23</java.version>
@@ -69,6 +70,18 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.12</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
