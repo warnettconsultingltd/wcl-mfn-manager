@@ -23,20 +23,3 @@ public class ContextSmokeTest {
         assertThat(contractCalculatorController).isNotNull();
     }
 }
-
-//
-//@SpringBootTest()
-//@ContextConfiguration(classes = [HomeController::class, ContractCalculatorUIController::class])
-//class ContextSmokeTest {
-//    @Autowired
-//    private val homePageController: HomeController? = null
-//
-//    @Autowired
-//    private val contractCalculatorController: ContractCalculatorUIController? = null
-//
-//    @Test
-//    fun contextLoads() {
-//        assertThat(homePageController).isNotNull()
-//        assertThat(contractCalculatorController).isNotNull()
-//    }
-//}
