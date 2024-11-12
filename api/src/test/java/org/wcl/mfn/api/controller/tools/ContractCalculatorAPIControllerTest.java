@@ -1,18 +1,18 @@
 package org.wcl.mfn.api.controller.tools;
 
-import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import static org.mockito.Mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.wcl.mfn.entities.contract.calculator.*;
 import org.wcl.mfn.exceptions.validation.InvalidParameterException;
 import org.wcl.mfn.service.tools.ContractCalculatorService;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class ContractCalculatorAPIControllerTest {
