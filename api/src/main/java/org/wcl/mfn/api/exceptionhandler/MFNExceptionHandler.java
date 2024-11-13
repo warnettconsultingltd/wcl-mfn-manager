@@ -8,8 +8,7 @@ import org.wcl.mfn.exceptions.validation.InvalidParameterException;
 public class MFNExceptionHandler {
 
     @ExceptionHandler(InvalidParameterException.class)
-    public ResponseEntity<String> handleApiException(final String errorId,
-                                                                final InvalidParameterException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(String.format("%s : %s", errorId, ex.getMessage()));
+    public ResponseEntity<String> handleApiException(final InvalidParameterException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
 }
