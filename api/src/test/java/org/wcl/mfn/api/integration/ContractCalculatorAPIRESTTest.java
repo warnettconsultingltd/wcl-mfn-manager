@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 public class ContractCalculatorAPIRESTTest {
-    private static final String VALID_JSON_EXPECTED_RESPONSE_FILE = "json/tools/contract-calculator/response/expected-contract-calculator-valid.json";
+    private static final String VALID_JSON_EXPECTED_RESPONSE_FILE = "expected-contract-calculator-valid.json";
 
     private MockMvc mockMvc;
     private ContractCalculatorService mockService;
@@ -50,7 +50,6 @@ public class ContractCalculatorAPIRESTTest {
         try {
             final var json = objectMapper.writeValueAsString(requestedRemuneration);
 
-            // Setup Mock
             when(mockService.suggestedContracts(567, 8665))
                     .thenReturn(getExpectedSuggestedContracts());
 

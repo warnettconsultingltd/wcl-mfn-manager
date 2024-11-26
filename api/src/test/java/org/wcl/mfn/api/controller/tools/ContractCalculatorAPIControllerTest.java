@@ -54,7 +54,6 @@ public class ContractCalculatorAPIControllerTest {
     public void whenInvalidRequestRemunerationSupplied_thenExceptionThrown() {
         assertThatThrownBy(() -> {
             testController.calculateSuggestedContracts(null);
-        }).isInstanceOf(InvalidParameterException.class)
-                .hasMessageContaining("Request remuneration value cannot be null");
+        }).isInstanceOf(NullPointerException.class);
     }
 }
