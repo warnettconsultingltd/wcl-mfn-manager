@@ -38,10 +38,10 @@ public class ContractCalculatorAPIControllerTest {
                 new SuggestedContract(5, 47, 6554657, 543547, List.of()),
                 new SuggestedContract(6, 48, 6554658, 543548, List.of()));
 
-        when(mockService.suggestedContracts(76, 773))
-                .thenReturn(mockedSuggestedContracts);
-
         try {
+            when(mockService.suggestedContracts(76, 773))
+                    .thenReturn(mockedSuggestedContracts);
+
             final var result = testController.calculateSuggestedContracts(requestRemuneration);
             assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
             assertThat(result.getBody()).isEqualTo(mockedSuggestedContracts);
