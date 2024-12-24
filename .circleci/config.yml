@@ -23,19 +23,19 @@ jobs:
       # Checkout the code as the first step.
       - checkout
 
-      - run:
-          name: Download Selenium
-          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+    #  - run:
+     #     name: Download Selenium
+      #    command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
 
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
 
-      - run:
-          name: Start Selenium
-          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-          background: true
+#      - run:
+ #         name: Start Selenium
+  #        command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+   #       background: true
 
       # Then run your tests!
       - run:
