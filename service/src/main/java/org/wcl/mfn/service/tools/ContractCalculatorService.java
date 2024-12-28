@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 
 @Service
-public final  class ContractCalculatorService {
+public class ContractCalculatorService {
     private static final double BONUS_PERCENTAGE_OF_SALARY = 0.75;
     private static final int MIN_YEARS = 2;
     private static final int MAX_YEARS = 6;
