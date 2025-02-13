@@ -23,6 +23,7 @@
         <module>exceptions</module>
         <module>app</module>
         <module>code-coverage-aggregation</module>
+        <module>comms</module>
     </modules>
     <properties>
         <java.version>23</java.version>
