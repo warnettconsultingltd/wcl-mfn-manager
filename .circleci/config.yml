@@ -32,26 +32,21 @@ jobs:
           name: Build
           command: mvn -B -DskipTests clean package
 
-#      - run:
- #         name: Start Selenium
-  #        command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-   #       background: true
-
       # Then run your tests!
       - run:
           name: Test
           command: mvn test verify
 
-      - run:
-          echo "Files"
-          find . -type f -name "*.xml"
-
-      - store_test_results:
-          path: /home/circleci/project/code-coverage-aggregation/target/site/jacoco-aggregate
-
-      - run:
-          name: Send to CodeCov
-          command: bash <(curl -s https://codecov.io/bash)
+ #     - run:
+ #         echo "Files"
+ #         find . -type f -name "*.xml"
+#
+#      - store_test_results:
+#          path: /home/circleci/project/code-coverage-aggregation/target/site/jacoco-aggregate
+#
+#      - run:
+#          name: Send to CodeCov
+#          command: bash <(curl -s https://codecov.io/bash)
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
