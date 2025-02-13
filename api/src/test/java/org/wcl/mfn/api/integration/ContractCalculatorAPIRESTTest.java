@@ -1,6 +1,9 @@
 package org.wcl.mfn.api.integration;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.hosuaby.inject.resources.junit.jupiter.GivenJsonResource;
+import io.hosuaby.inject.resources.junit.jupiter.TestWithResources;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +22,10 @@ import org.wcl.mfn.entities.contract.calculator.SuggestedYearlyContract;
 import org.wcl.mfn.exceptions.validation.InvalidParameterException;
 import org.wcl.mfn.service.tools.ContractCalculatorService;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import static org.mockito.Mockito.mock;
@@ -28,22 +34,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
-public class ContractCalculatorAPIRESTTest {
+@TestWithResources
+class ContractCalculatorAPIRESTTest {
     private static final String VALID_JSON_EXPECTED_RESPONSE_FILE = "expected-contract-calculator-valid.json";
 
     private MockMvc mockMvc;
     private ContractCalculatorService mockService;
 
+    @GivenJsonResource(VALID_JSON_EXPECTED_RESPONSE_FILE)
+    JsonNode expectedJson;
 
     @BeforeEach
-    public void setupTestEnvironment() {
+    void setupTestEnvironment() {
         mockService = mock(ContractCalculatorService.class);
         mockMvc = MockMvcBuilders.standaloneSetup(new ContractCalculatorAPIController(mockService))
                 .setControllerAdvice(new MFNExceptionHandler()).build();
     }
 
     @Test
-    public void whenValidRequestMade_thenSuggestedContractsReturned() {
+    void whenValidRequestMade_thenSuggestedContractsReturned() {
         final var requestedRemuneration = new RequestedRemuneration(567, 8665);
 
         final var objectMapper = new ObjectMapper();
@@ -53,14 +62,12 @@ public class ContractCalculatorAPIRESTTest {
             when(mockService.suggestedContracts(567, 8665))
                     .thenReturn(getExpectedSuggestedContracts());
 
-            final var expectedJson = FileTestUtils.testResourceFileAsString(VALID_JSON_EXPECTED_RESPONSE_FILE);
-
             mockMvc.perform(MockMvcRequestBuilders.post("/api/contract-calculator")
                             .accept(MediaType.APPLICATION_JSON_VALUE)
                             .contentType(MediaType.APPLICATION_JSON_VALUE)
                             .content(json))
                     .andExpect(status().isOk())
-                    .andExpect(content().json(expectedJson));
+                    .andExpect(content().json(expectedJson.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -97,7 +104,7 @@ public class ContractCalculatorAPIRESTTest {
     }
 
     @Test
-    public void whenNoParametersSupplied_thenErrorReturned() {
+    void whenNoParametersSupplied_thenErrorReturned() {
         try {
             final var objectMapper = new ObjectMapper();
             mockMvc.perform(MockMvcRequestBuilders.post("/api/contract-calculator")
@@ -112,7 +119,7 @@ public class ContractCalculatorAPIRESTTest {
     }
 
     @Test
-    public void whenZeroSalarySupplied_thenErrorReturned() throws Exception {
+    void whenZeroSalarySupplied_thenErrorReturned() throws Exception {
         final var objectMapper = new ObjectMapper();
         mockMvc.perform(MockMvcRequestBuilders.post("/api/contract-calculator")
                         .accept(MediaType.APPLICATION_JSON_VALUE)
@@ -126,7 +133,7 @@ public class ContractCalculatorAPIRESTTest {
     }
 
     @Test
-    public void whenZeroBonusSupplied_thenErrorReturned() throws Exception {
+    void whenZeroBonusSupplied_thenErrorReturned() throws Exception {
         final var objectMapper = new ObjectMapper();
         mockMvc.perform(MockMvcRequestBuilders.post("/api/contract-calculator")
                         .accept(MediaType.APPLICATION_JSON_VALUE)

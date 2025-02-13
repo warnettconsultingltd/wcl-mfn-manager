@@ -24,7 +24,13 @@ public class FileTestUtils {
 
 
     public static String testResourceFileAsString(final String path) throws IOException {
+        System.out.println(path);
         return IOUtils.resourceToString(path, Charset.defaultCharset(), FileTestUtils.CLASSLOADER);
+    }
+
+    public static String testResourceFileAsString(final String path, final ClassLoader classLoader) throws IOException {
+        System.out.println(path);
+        return IOUtils.resourceToString(path, Charset.defaultCharset(), classLoader);
     }
 
     public static JsonPath testResourceFileAsJson(final String path) {
