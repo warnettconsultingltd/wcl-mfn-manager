@@ -1,4 +1,4 @@
-package org.wcl.mfn.exceptions.validation;
+package org.wcl.mfn.exceptions;
 
 public class InvalidParameterException extends Exception {
     public InvalidParameterException(final String message) {
