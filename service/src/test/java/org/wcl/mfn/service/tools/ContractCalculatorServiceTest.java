@@ -2,7 +2,7 @@ package org.wcl.mfn.service.tools;
 
 import org.junit.jupiter.api.*;
 import org.wcl.mfn.entities.contract.calculator.*;
-import org.wcl.mfn.exceptions.validation.InvalidParameterException;
+import org.wcl.mfn.exceptions.InvalidParameterException;
 
 import java.util.List;
 

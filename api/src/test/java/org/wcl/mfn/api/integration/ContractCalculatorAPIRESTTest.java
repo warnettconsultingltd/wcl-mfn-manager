@@ -15,17 +15,13 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.wcl.mfn.api.controller.tools.ContractCalculatorAPIController;
 import org.wcl.mfn.api.exceptionhandler.MFNExceptionHandler;
-import org.wcl.mfn.api.testutils.FileTestUtils;
 import org.wcl.mfn.entities.contract.calculator.RequestedRemuneration;
 import org.wcl.mfn.entities.contract.calculator.SuggestedContract;
 import org.wcl.mfn.entities.contract.calculator.SuggestedYearlyContract;
-import org.wcl.mfn.exceptions.validation.InvalidParameterException;
+import org.wcl.mfn.exceptions.InvalidParameterException;
 import org.wcl.mfn.service.tools.ContractCalculatorService;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import static org.mockito.Mockito.mock;
