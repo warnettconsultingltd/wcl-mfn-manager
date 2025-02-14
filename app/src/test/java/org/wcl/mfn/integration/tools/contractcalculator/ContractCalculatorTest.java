@@ -12,7 +12,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.wcl.mfn.entities.contract.calculator.RequestedRemuneration;
 import org.wcl.mfn.entities.contract.calculator.SuggestedContract;
-import org.wcl.mfn.exceptions.validation.InvalidParameterException;
+import org.wcl.mfn.exceptions.InvalidParameterException;
 import org.wcl.mfn.integration.utils.FileTestUtils;
 import org.wcl.mfn.integration.utils.JsonTestUtils;
 import org.wcl.mfn.integration.utils.JsonValidatingMatcher;

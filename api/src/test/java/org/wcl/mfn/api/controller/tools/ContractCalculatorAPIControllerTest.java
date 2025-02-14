@@ -6,7 +6,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatusCode;
 import org.wcl.mfn.entities.contract.calculator.*;
-import org.wcl.mfn.exceptions.validation.InvalidParameterException;
+import org.wcl.mfn.exceptions.InvalidParameterException;
 import org.wcl.mfn.service.tools.ContractCalculatorService;
 
 import java.util.List;

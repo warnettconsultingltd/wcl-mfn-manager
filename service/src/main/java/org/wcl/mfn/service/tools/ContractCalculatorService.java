@@ -2,7 +2,7 @@ package org.wcl.mfn.service.tools;
 
 import org.springframework.stereotype.Service;
 import org.wcl.mfn.entities.contract.calculator.*;
-import org.wcl.mfn.exceptions.validation.InvalidParameterException;
+import org.wcl.mfn.exceptions.InvalidParameterException;
 
 import java.util.List;
 import java.util.stream.IntStream;

@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 import org.springframework.http.HttpStatus;
-import org.wcl.mfn.exceptions.validation.InvalidParameterException;
+import org.wcl.mfn.exceptions.InvalidParameterException;
 
 public class MFNExceptionHandlerTest {
     private MFNExceptionHandler testSubject;

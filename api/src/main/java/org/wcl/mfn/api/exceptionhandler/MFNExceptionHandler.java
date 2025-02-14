@@ -2,7 +2,7 @@ package org.wcl.mfn.api.exceptionhandler;
 
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import org.wcl.mfn.exceptions.validation.InvalidParameterException;
+import org.wcl.mfn.exceptions.InvalidParameterException;
 
 @RestControllerAdvice
 public class MFNExceptionHandler {
